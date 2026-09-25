@@ -87,9 +87,9 @@ export default function Home() {
     <div className="online-site">
       <header className="site-header">
         <div className="container header-inner">
-          <a href="#inicio" className="brand-mark" aria-label="Voz em Foco - início">
+          <a href="#inicio" className="brand-mark" aria-label="Clínica la Vie - início">
             <span className="brand-icon"><Waves size={19} /></span>
-            <span><strong>voz em foco</strong><small>fonoaudiologia online</small></span>
+            <span><strong>Clínica la Vie</strong><small>fonoaudiologia online</small></span>
           </a>
           <nav className="desktop-nav" aria-label="Navegação principal">
             <a href="#necessidades">Necessidades</a>
@@ -114,7 +114,7 @@ export default function Home() {
               <div className="hero-trust"><span><Check size={15} /> 100% online</span><span><Check size={15} /> Sessões individuais</span><span><Check size={15} /> De qualquer lugar</span></div>
             </div>
             <div className="hero-visual">
-              <div className="hero-image-frame"><img src="/manus-storage/hero-voz-em-foco_912882ab.jpg" alt="Imagem ilustrativa de uma profissional em um ambiente de cuidado vocal" /><div className="hero-image-overlay" /></div>
+              <div className="hero-image-frame"><img src="/manus-storage/pasted_file_ZZnPBG_image_9cead630.png" alt="Dra. Francine Y. Sanchez Lemes, fonoaudióloga" /><div className="hero-image-overlay" /></div>
               <div className="hero-info-card"><span className="info-icon"><Video size={17} /></span><span><small>atendimento por</small><strong>videochamada</strong></span></div>
               <div className="hero-note-card"><Waves size={19} /><span>Uma voz saudável<br /><strong>para viver sua rotina.</strong></span></div>
             </div>
@@ -165,8 +165,7 @@ export default function Home() {
         <section className="section section-soft" id="quem-sou">
           <div className="container about-grid">
             <div className="about-photo">
-              <img src="/manus-storage/hero-voz-em-foco_912882ab.jpg" alt="Foto ilustrativa da Dra. Francine Y. Sanchez Lemes em um ambiente de atendimento vocal" />
-              <div className="photo-editable">Foto profissional<br /><small>substituir no projeto</small></div>
+              <img src="/manus-storage/pasted_file_ZZnPBG_image_9cead630.png" alt="Dra. Francine Y. Sanchez Lemes, fonoaudióloga" />
             </div>
             <div className="about-copy">
               <div className="eyebrow eyebrow-coral"><span /> uma conversa de perto</div>
@@ -191,7 +190,7 @@ export default function Home() {
         <section className="final-cta"><div className="container final-cta-inner"><div><div className="eyebrow eyebrow-light"><span /> atendimento 100% online</div><h2>Sua voz pode ocupar<br /><em>mais espaço.</em></h2><p>Agende uma conversa inicial e descubra como a fonoaudiologia online pode fazer sentido para você.</p></div><WhatsAppButton className="button-primary button-large"><MessageCircle size={18} /> Agendar avaliação pelo WhatsApp <ArrowRight size={17} /></WhatsAppButton></div></section>
       </main>
 
-      <footer className="site-footer"><div className="container footer-main"><a href="#inicio" className="brand-mark"><span className="brand-icon"><Waves size={19} /></span><span><strong>voz em foco</strong><small>fonoaudiologia online</small></span></a><div className="footer-nav"><a href="#necessidades">Necessidades</a><a href="#online">Terapia online</a><a href="#quem-sou">Quem sou eu</a><a href="#duvidas">Dúvidas</a></div><a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="footer-whatsapp"><MessageCircle size={16} /> WhatsApp</a></div><div className="container footer-bottom"><span>© 2026 Voz em Foco. Todos os direitos reservados.</span><span>Atendimento fonoaudiológico online.</span></div></footer>
+      <footer className="site-footer"><div className="container footer-main"><a href="#inicio" className="brand-mark"><span className="brand-icon"><Waves size={19} /></span><span><strong>Clínica la Vie</strong><small>fonoaudiologia online</small></span></a><div className="footer-nav"><a href="#necessidades">Necessidades</a><a href="#online">Terapia online</a><a href="#quem-sou">Quem sou eu</a><a href="#duvidas">Dúvidas</a></div><a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="footer-whatsapp"><MessageCircle size={16} /> WhatsApp</a></div><div className="container footer-bottom"><span>© 2026 Clínica la Vie. Todos os direitos reservados.</span><span>Atendimento fonoaudiológico online.</span></div></footer>
     </div>
   );
 }
