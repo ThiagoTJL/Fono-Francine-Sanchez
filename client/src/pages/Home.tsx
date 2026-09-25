@@ -1,250 +1,159 @@
-import { FormEvent, useState } from "react";
+import { useState } from "react";
 import {
   ArrowRight,
   Check,
   ChevronDown,
-  CircleCheck,
-  Headphones,
-  HeartPulse,
-  Instagram,
-  Linkedin,
+  Clock3,
+  Laptop2,
+  MessageCircle,
   Mic2,
   MoveUpRight,
   Play,
-  Quote,
+  ShieldCheck,
   Sparkles,
-  Stethoscope,
+  UserRound,
+  Video,
   Volume2,
   Waves,
-  Wind,
 } from "lucide-react";
+
+// Edite somente esta constante quando quiser trocar o WhatsApp principal.
+const WHATSAPP_URL =
+  "https://wa.me/5514991089006?text=Ol%C3%A1%21%20Vi%20o%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20fonoaudiologia%20online%20e%20agendar%20uma%20avalia%C3%A7%C3%A3o";
 
 const focusAreas = [
   {
     icon: Volume2,
-    eyebrow: "Saúde vocal",
-    title: "Rouquidão & falhas na voz",
-    text: "Investigue o que está por trás do cansaço vocal, da voz soprosa e das falhas que aparecem no meio da fala.",
-    tone: "coral",
+    title: "Rouquidão e falhas na voz",
+    text: "Investigue o cansaço vocal, a voz soprosa e as falhas que aparecem durante a fala ou no trabalho.",
   },
   {
     icon: Mic2,
-    eyebrow: "Performance",
-    title: "Aprimoramento vocal & canto",
-    text: "Mais liberdade, resistência e controle para cantar, gravar, dar aula ou usar a voz por muitas horas.",
-    tone: "teal",
+    title: "Aprimoramento vocal e canto",
+    text: "Desenvolva mais controle, resistência e liberdade para cantar, gravar ou usar a voz por muitas horas.",
   },
   {
-    icon: Headphones,
-    eyebrow: "Comunicação",
-    title: "Dicção & oratória",
-    text: "Fale com clareza, presença e naturalidade — sem forçar, decorar ou perder a sua personalidade.",
-    tone: "sand",
+    icon: MessageCircle,
+    title: "Dicção e oratória",
+    text: "Fale com clareza, presença e naturalidade em reuniões, aulas, apresentações e vídeos.",
   },
   {
-    icon: HeartPulse,
-    eyebrow: "Reabilitação",
-    title: "Nódulos & prega vocal",
-    text: "Acompanhamento individual para nódulos, paralisia de prega vocal e outros desafios da produção da voz.",
-    tone: "plum",
-  },
-];
-
-const testimonials = [
-  {
-    quote:
-      "Eu terminava o dia sem voz e achava que era normal. Em poucas semanas, voltei a dar aula sem medo de falhar no meio da explicação.",
-    name: "Marina A.",
-    role: "Professora e palestrante",
-    initials: "MA",
-  },
-  {
-    quote:
-      "O trabalho foi muito além de exercícios. Entendi minha voz, parei de compensar e finalmente consegui cantar com mais segurança.",
-    name: "Rafael M.",
-    role: "Cantor e compositor",
-    initials: "RM",
-  },
-  {
-    quote:
-      "A diferença na minha oratória foi imediata: mais clareza, menos tensão e uma presença que eu não sabia que podia construir.",
-    name: "Camila R.",
-    role: "Executiva",
-    initials: "CR",
+    icon: ShieldCheck,
+    title: "Nódulos e prega vocal",
+    text: "Acompanhamento individualizado para nódulos, paralisia de prega vocal e outras necessidades clínicas.",
   },
 ];
 
 const faqs = [
   {
-    question: "Como sei se preciso de fonoaudiologia?",
+    question: "Como funciona a fonoaudiologia online?",
     answer:
-      "Se a rouquidão dura mais de duas semanas, se a voz falha, cansa, dói ou limita seu trabalho, já vale investigar. Também é possível buscar acompanhamento para aprimorar a voz mesmo sem uma queixa clínica.",
+      "As sessões acontecem individualmente por videochamada, em um horário combinado. Na avaliação, conversamos sobre sua história, sua rotina vocal e seus objetivos para construir um acompanhamento personalizado.",
   },
   {
-    question: "O atendimento é apenas para quem canta?",
+    question: "A terapia online funciona para voz, dicção e oratória?",
     answer:
-      "Não. A voz é uma ferramenta de trabalho para professores, líderes, vendedores, advogados, atores, criadores de conteúdo e qualquer pessoa que queira se comunicar com mais conforto e presença.",
+      "Em muitos casos, sim. Voz, fala, respiração, articulação e comunicação podem ser observadas e trabalhadas por videochamada com orientações e exercícios adaptados à sua necessidade.",
   },
   {
-    question: "Atende casos de nódulos e paralisia de prega vocal?",
+    question: "Atende casos de nódulos ou paralisia de prega vocal?",
     answer:
-      "Sim. O acompanhamento é individualizado e pode acontecer em conjunto com o otorrinolaringologista responsável, respeitando cada diagnóstico e etapa de reabilitação.",
+      "Esses casos podem ser acompanhados de forma individualizada e, quando necessário, em conjunto com o otorrinolaringologista responsável. Cada plano respeita o diagnóstico e a etapa do cuidado.",
   },
   {
-    question: "As sessões podem ser online?",
+    question: "Preciso ter equipamentos especiais para a sessão?",
     answer:
-      "Sim. A avaliação e os exercícios podem ser adaptados para o formato online em muitos casos. Na conversa inicial, identificamos qual formato faz mais sentido para você.",
+      "Não. Você precisa de um celular ou computador com câmera, microfone e internet. Um ambiente silencioso e fones de ouvido podem ajudar, mas não são obrigatórios.",
   },
   {
-    question: "Quanto tempo leva para perceber mudanças?",
+    question: "Como agendo minha avaliação online?",
     answer:
-      "Cada voz tem seu tempo. Algumas pessoas percebem mais conforto nas primeiras sessões; outras precisam de um processo mais longo. O plano é construído com metas claras e acompanhamento próximo.",
+      "Clique em qualquer botão de WhatsApp nesta página e envie a mensagem pronta. A partir daí, você recebe as orientações para encontrar um horário e tirar suas dúvidas.",
   },
 ];
 
-function scrollToContact() {
-  document.querySelector("#contato")?.scrollIntoView({ behavior: "smooth" });
+function WhatsAppButton({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+  return (
+    <a className={`button ${className}`} href={WHATSAPP_URL} target="_blank" rel="noreferrer">
+      {children}
+    </a>
+  );
 }
 
 export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
-  const [submitted, setSubmitted] = useState(false);
-
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    setSubmitted(true);
-  }
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-cream text-ink">
+    <div className="online-site">
       <header className="site-header">
-        <div className="container flex items-center justify-between gap-6 py-5">
-          <a href="#top" className="brand-mark" aria-label="Voz em Foco - início">
-            <span className="brand-icon"><Waves size={20} strokeWidth={2.3} /></span>
-            <span>
-              <strong>voz em foco</strong>
-              <small>fonoaudiologia</small>
-            </span>
+        <div className="container header-inner">
+          <a href="#inicio" className="brand-mark" aria-label="Voz em Foco - início">
+            <span className="brand-icon"><Waves size={19} /></span>
+            <span><strong>voz em foco</strong><small>fonoaudiologia online</small></span>
           </a>
-          <nav className="hidden items-center gap-8 md:flex" aria-label="Navegação principal">
-            <a href="#especialidades" className="nav-link">Especialidades</a>
-            <a href="#metodo" className="nav-link">Como funciona</a>
-            <a href="#depoimentos" className="nav-link">Histórias reais</a>
+          <nav className="desktop-nav" aria-label="Navegação principal">
+            <a href="#necessidades">Necessidades</a>
+            <a href="#online">Terapia online</a>
+            <a href="#quem-sou">Quem sou eu</a>
+            <a href="#duvidas">Dúvidas</a>
           </nav>
-          <button onClick={scrollToContact} className="button button-small button-outline hidden sm:inline-flex">
-            Falar com a clínica <ArrowRight size={16} />
-          </button>
+          <WhatsAppButton className="button-header"><MessageCircle size={15} /> Agendar avaliação</WhatsAppButton>
         </div>
       </header>
 
-      <main id="top">
-        <section className="hero-section">
-          <div className="hero-orb hero-orb-one" />
-          <div className="hero-orb hero-orb-two" />
-          <div className="container hero-grid">
-            <div className="hero-copy reveal-up">
-              <div className="eyebrow"><span className="eyebrow-dot" /> sua voz merece cuidado</div>
-              <h1>Uma voz mais <em>livre</em> para você se expressar.</h1>
-              <p className="hero-lead">
-                Fonoaudiologia especializada em voz, fala e performance para quem quer cuidar da saúde vocal, recuperar a confiança e comunicar o que tem de melhor.
-              </p>
+      <main id="inicio">
+        <section className="online-hero">
+          <div className="container hero-inner">
+            <div className="hero-content">
+              <div className="eyebrow"><span /> fonoaudiologia online</div>
+              <h1>Cuide da sua voz <em>de onde estiver.</em></h1>
+              <p className="hero-subtitle">Terapia fonoaudiológica online, por videochamada e com atendimento individualizado para sua voz, sua fala e sua comunicação.</p>
               <div className="hero-actions">
-                <button onClick={scrollToContact} className="button button-primary button-large">Agendar avaliação <ArrowRight size={18} /></button>
-                <a href="#metodo" className="text-link"><span className="play-icon"><Play size={12} fill="currentColor" /></span> Conheça o processo</a>
+                <WhatsAppButton className="button-primary button-large"><MessageCircle size={18} /> Agendar avaliação pelo WhatsApp</WhatsAppButton>
               </div>
-              <div className="hero-proof">
-                <div className="avatar-stack" aria-hidden="true"><span>J</span><span>M</span><span>R</span><span>+</span></div>
-                <div><strong>cuidado que se escuta</strong><small>Atendimento individual e baseado em evidências</small></div>
-              </div>
+              <div className="hero-trust"><span><Check size={15} /> 100% online</span><span><Check size={15} /> Sessões individuais</span><span><Check size={15} /> De qualquer lugar</span></div>
             </div>
-            <div className="hero-visual reveal-up delay-one">
-              <div className="hero-image-wrap">
-                <img src="/manus-storage/hero-voz-em-foco_912882ab.jpg" alt="Fonoaudióloga sorrindo em um estúdio de terapia vocal" className="hero-image" />
-                <div className="hero-image-wash" />
-                <div className="voice-card glass-card">
-                  <span className="voice-card-icon"><Volume2 size={17} /></span>
-                  <span><small>seu próximo passo</small><strong>começa pela escuta</strong></span>
-                </div>
-              </div>
-              <div className="wave-decoration" aria-hidden="true"><svg viewBox="0 0 300 90" fill="none"><path d="M1 48C25 48 25 22 49 22C73 22 73 68 97 68C121 68 121 10 145 10C169 10 169 80 193 80C217 80 217 33 241 33C265 33 265 49 299 49" stroke="currentColor" strokeWidth="3" strokeLinecap="round" /><path d="M1 65C25 65 25 47 49 47C73 47 73 78 97 78C121 78 121 34 145 34C169 34 169 86 193 86C217 86 217 57 241 57C265 57 265 66 299 66" stroke="currentColor" strokeOpacity=".25" strokeWidth="2" strokeLinecap="round" /></svg></div>
+            <div className="hero-visual">
+              <div className="hero-image-frame"><img src="/manus-storage/hero-voz-em-foco_912882ab.jpg" alt="Imagem ilustrativa de uma profissional em um ambiente de cuidado vocal" /><div className="hero-image-overlay" /></div>
+              <div className="hero-info-card"><span className="info-icon"><Video size={17} /></span><span><small>atendimento por</small><strong>videochamada</strong></span></div>
+              <div className="hero-note-card"><Waves size={19} /><span>Uma voz saudável<br /><strong>para viver sua rotina.</strong></span></div>
             </div>
           </div>
-          <div className="hero-bottom-line"><div className="container flex items-center justify-between gap-8"><span>voz saudável</span><i /><span>comunicação autêntica</span><i /><span>performance sustentável</span><i /><span>cuidado individual</span></div></div>
+          <div className="hero-bottom"><div className="container"><span>voz</span><i /><span>fala</span><i /><span>comunicação</span><i /><span>cuidado online</span></div></div>
         </section>
 
-        <section className="pain-section section-pad" id="especialidades">
+        <section className="section section-white" id="necessidades">
           <div className="container">
-            <div className="section-intro split-intro">
-              <div><div className="eyebrow eyebrow-dark"><span className="eyebrow-dot" /> talvez você se reconheça</div><h2>Quando a voz pesa, <br /><em>tudo sente.</em></h2></div>
-              <p>Você não precisa se acostumar com uma voz cansada, presa ou imprevisível. Existe um caminho cuidadoso — e ele começa entendendo o que o seu corpo está tentando dizer.</p>
-            </div>
-            <div className="focus-grid">
-              {focusAreas.map((area, index) => {
-                const Icon = area.icon;
-                return <article className={`focus-card tone-${area.tone}`} key={area.title}>
-                  <div className="focus-number">0{index + 1}</div>
-                  <div className="focus-icon"><Icon size={22} /></div>
-                  <div className="focus-content"><span className="card-eyebrow">{area.eyebrow}</span><h3>{area.title}</h3><p>{area.text}</p><a href="#contato" className="card-link">Quero cuidar disso <MoveUpRight size={16} /></a></div>
-                </article>;
-              })}
-            </div>
+            <div className="section-heading two-columns"><div><div className="eyebrow eyebrow-green"><span /> cuidado para a sua necessidade</div><h2>O que você gostaria de <em>transformar?</em></h2></div><p>Você não precisa conviver com uma voz cansada, presa ou imprevisível. O acompanhamento começa entendendo o que está acontecendo e o que você deseja conquistar.</p></div>
+            <div className="areas-grid">{focusAreas.map((area, index) => { const Icon = area.icon; return <article className="area-card" key={area.title}><span className="area-number">0{index + 1}</span><span className="area-icon"><Icon size={21} /></span><h3>{area.title}</h3><p>{area.text}</p><a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="card-link">Quero saber mais <MoveUpRight size={15} /></a></article>; })}</div>
           </div>
         </section>
 
-        <section className="method-section section-pad" id="metodo">
-          <div className="container method-grid">
-            <div className="method-sticky">
-              <div className="eyebrow eyebrow-coral"><span className="eyebrow-dot" /> o método voz em foco</div>
-              <h2>Clareza no plano.<br /><em>Leveza no processo.</em></h2>
-              <p>Não existe exercício solto ou fórmula pronta. Cada atendimento conecta avaliação, percepção e prática para a mudança fazer sentido na sua rotina.</p>
-              <button onClick={scrollToContact} className="button button-dark">Quero encontrar meu caminho <ArrowRight size={17} /></button>
-              <div className="method-note"><CircleCheck size={18} /> Plano terapêutico explicado em cada etapa</div>
-            </div>
-            <div className="steps-list">
-              <div className="step-item"><span className="step-index">01</span><div><h3>Escutar antes de intervir</h3><p>Na avaliação, investigamos sua história, sua rotina vocal e o que muda quando você fala, canta ou se apresenta.</p></div><Stethoscope className="step-icon" size={26} /></div>
-              <div className="step-item"><span className="step-index">02</span><div><h3>Entender o que a voz pede</h3><p>Você passa a perceber tensão, respiração, ressonância e os hábitos que podem estar sobrecarregando sua voz.</p></div><Wind className="step-icon" size={26} /></div>
-              <div className="step-item"><span className="step-index">03</span><div><h3>Treinar com intenção</h3><p>Exercícios simples, progressivos e aplicáveis ao seu dia: na sala de aula, no palco, no trabalho ou em casa.</p></div><Mic2 className="step-icon" size={26} /></div>
-              <div className="step-item"><span className="step-index">04</span><div><h3>Levar a mudança para a vida</h3><p>O objetivo é uma voz que funciona fora da sessão — com autonomia, confiança e mais prazer em se comunicar.</p></div><Sparkles className="step-icon" size={26} /></div>
-            </div>
+        <section className="section section-mint" id="online">
+          <div className="container online-grid">
+            <div className="online-copy"><div className="eyebrow eyebrow-coral"><span /> simples, próximo e personalizado</div><h2>Como funciona a <em>fonoaudiologia online?</em></h2><p>O cuidado acontece ao vivo, por videochamada, com a mesma atenção de um atendimento individualizado — sem deslocamento e no ritmo da sua rotina.</p><WhatsAppButton className="button-dark">Quero saber mais sobre a terapia online <ArrowRight size={17} /></WhatsAppButton></div>
+            <div className="online-features"><div className="feature-row"><span><Video size={20} /></span><div><strong>Videochamada ao vivo</strong><p>Um encontro reservado e focado em você.</p></div></div><div className="feature-row"><span><UserRound size={20} /></span><div><strong>Sessões individuais</strong><p>Orientações que respeitam sua história e seus objetivos.</p></div></div><div className="feature-row"><span><Laptop2 size={20} /></span><div><strong>De qualquer lugar</strong><p>Faça sua sessão de onde estiver, com mais comodidade.</p></div></div><div className="feature-row"><span><Sparkles size={20} /></span><div><strong>Prática entre as sessões</strong><p>Exercícios e acompanhamento para levar o cuidado à rotina.</p></div></div></div>
           </div>
         </section>
 
-        <section className="quote-section section-pad" id="depoimentos">
-          <div className="container">
-            <div className="quote-heading"><div className="eyebrow eyebrow-coral"><span className="eyebrow-dot" /> histórias que ganharam voz</div><h2>O resultado aparece <em>no cotidiano.</em></h2><p>Pequenas mudanças na forma de usar a voz transformam a forma de estar presente.</p></div>
-            <div className="testimonial-grid">
-              {testimonials.map((item) => <article className="testimonial-card" key={item.name}><Quote size={26} className="quote-mark" /><p>“{item.quote}”</p><div className="testimonial-author"><span className="initials">{item.initials}</span><span><strong>{item.name}</strong><small>{item.role}</small></span></div></article>)}
-            </div>
-          </div>
+        <section className="section section-white benefits-section">
+          <div className="container benefits-grid"><div className="benefits-visual"><div className="benefit-circle circle-one" /><div className="benefit-circle circle-two" /><div className="benefit-quote"><Play size={15} fill="currentColor" /><span>mais presença<br /><strong>ao se comunicar</strong></span></div></div><div className="benefits-copy"><div className="eyebrow eyebrow-green"><span /> o que você leva desse processo</div><h2>Mais conforto para <em>usar sua voz.</em></h2><p>O acompanhamento fonoaudiológico pode ajudar você a perceber melhor sua voz, organizar sua comunicação e construir estratégias para a sua rotina — sem promessas prontas e sem perder a sua autenticidade.</p><div className="check-list"><span><Check size={16} /> Entender seus padrões de voz e fala</span><span><Check size={16} /> Reduzir esforço e tensão ao se comunicar</span><span><Check size={16} /> Desenvolver clareza, presença e confiança</span><span><Check size={16} /> Ter orientação profissional durante o processo</span></div><WhatsAppButton className="button-outline-dark">Agende sua avaliação online <ArrowRight size={16} /></WhatsAppButton></div></div>
         </section>
 
-        <section className="authority-section section-pad">
-          <div className="container authority-grid">
-            <div className="authority-portrait"><div className="portrait-shape"><div className="portrait-placeholder"><Mic2 size={48} strokeWidth={1.2} /><span>presença que acolhe<br />técnica que transforma</span></div></div><span className="portrait-caption">Dra. Helena Martins <small>Fonoaudióloga • CRFa 2-XXXXX</small></span></div>
-            <div className="authority-copy"><div className="eyebrow eyebrow-dark"><span className="eyebrow-dot" /> sobre o cuidado</div><h2>Seu corpo tem respostas.<br /><em>A gente aprende a escutar.</em></h2><p>Meu trabalho é criar um espaço seguro para você entender a própria voz — sem julgamentos, atalhos ou promessas irreais. Técnica e acolhimento caminham juntos em cada plano terapêutico.</p><div className="authority-points"><span><Check size={16} /> Especialização em voz profissional</span><span><Check size={16} /> Atendimento presencial e online</span><span><Check size={16} /> Integração com equipe médica quando necessário</span></div><button onClick={scrollToContact} className="text-link dark-link">Conheça o cuidado de perto <ArrowRight size={16} /></button></div>
-          </div>
+        <section className="section section-soft" id="quem-sou">
+          <div className="container about-grid"><div className="about-photo"><img src="/manus-storage/hero-voz-em-foco_912882ab.jpg" alt="Foto ilustrativa para substituir pela foto profissional da fonoaudióloga" /><div className="photo-editable">Foto profissional<br /><small>substituir no projeto</small></div></div><div className="about-copy"><div className="eyebrow eyebrow-coral"><span /> uma conversa de perto</div><h2>Quem sou <em>eu</em></h2><p className="editable-note">[NOME DA FONOAUDIÓLOGA]</p><p className="about-role">[FORMAÇÃO E CRFa — preencher]</p><p>Meu trabalho é oferecer um espaço acolhedor para você entender sua voz, sua fala e suas possibilidades de comunicação. O atendimento é construído de forma individualizada, com escuta cuidadosa, orientação clara e estratégias que façam sentido para a sua rotina.</p><p>Atuo com foco em voz, fala, dicção, oratória e acompanhamento vocal. Na modalidade online, você conta com acompanhamento profissional de onde estiver, sem abrir mão da proximidade e do cuidado.</p><div className="about-tags"><span>[ESPECIALIDADE]</span><span>[ÁREA DE ATUAÇÃO]</span><span>fonoaudiologia online</span></div><WhatsAppButton className="button-dark">Fale comigo pelo WhatsApp <MessageCircle size={16} /></WhatsAppButton></div></div>
         </section>
 
-        <section className="cta-section section-pad" id="contato">
-          <div className="container cta-grid">
-            <div className="cta-copy"><div className="eyebrow eyebrow-light"><span className="eyebrow-dot" /> seu próximo capítulo</div><h2>Pronto para dar espaço à sua <em>melhor voz?</em></h2><p>Conte um pouco sobre o que você está vivendo. A primeira conversa é um ponto de partida, sem compromisso.</p><div className="cta-details"><span><CircleCheck size={17} /> Resposta em até 1 dia útil</span><span><CircleCheck size={17} /> Atendimento personalizado</span></div></div>
-            <form className="contact-form" onSubmit={handleSubmit}>
-              {submitted ? <div className="form-success"><span><Check size={26} /></span><h3>Mensagem recebida.</h3><p>Obrigada por confiar sua história à Voz em Foco. Em breve, entraremos em contato para conversar.</p><button type="button" onClick={() => setSubmitted(false)} className="text-link light-link">Enviar outra mensagem</button></div> : <>
-                <div className="form-top"><span>Vamos começar?</span><small>leva menos de 2 minutos</small></div>
-                <label>Seu nome<input name="name" required placeholder="Como podemos te chamar?" /></label>
-                <label>Seu melhor contato<input name="contact" required placeholder="WhatsApp ou e-mail" /></label>
-                <label>O que trouxe você até aqui?<select name="reason" defaultValue=""><option value="" disabled>Selecione uma opção</option><option>Rouquidão ou falhas na voz</option><option>Aprimoramento vocal ou canto</option><option>Dicção ou oratória</option><option>Nódulos ou prega vocal</option><option>Outro motivo</option></select></label>
-                <button className="button button-coral button-large" type="submit">Quero conversar <ArrowRight size={18} /></button>
-                <small className="form-privacy">Seus dados ficam seguros e são usados apenas para este contato.</small>
-              </>}
-            </form>
-          </div>
+        <section className="section section-white evaluation-section">
+          <div className="container"><div className="section-heading centered"><div className="eyebrow eyebrow-green"><span /> seu primeiro passo</div><h2>Como funciona a <em>avaliação online?</em></h2><p>Uma conversa inicial para entender sua necessidade e explicar o melhor caminho para o seu caso.</p></div><div className="evaluation-grid"><div><span>01</span><Clock3 size={22} /><h3>Você entra em contato</h3><p>Envie uma mensagem pelo WhatsApp e conte brevemente o que gostaria de trabalhar.</p></div><div><span>02</span><MessageCircle size={22} /><h3>A gente conversa</h3><p>Combinamos o melhor horário e o formato da avaliação por videochamada.</p></div><div><span>03</span><ShieldCheck size={22} /><h3>Você entende o plano</h3><p>Depois da avaliação, você recebe orientações claras sobre os próximos passos.</p></div></div><div className="center-cta"><WhatsAppButton className="button-primary button-large"><MessageCircle size={18} /> Agendar minha avaliação online</WhatsAppButton></div></div>
         </section>
 
-        <section className="faq-section section-pad" id="faq"><div className="container faq-grid"><div><div className="eyebrow eyebrow-dark"><span className="eyebrow-dot" /> ainda ficou com dúvida?</div><h2>Vamos deixar<br /><em>tudo claro.</em></h2><p>Se a sua pergunta não estiver aqui, fale com a gente. Cada caso merece ser ouvido com atenção.</p><a href="#contato" className="text-link dark-link">Falar com a clínica <ArrowRight size={16} /></a></div><div className="faq-list">{faqs.map((faq, index) => <div className={`faq-item ${openFaq === index ? "is-open" : ""}`} key={faq.question}><button onClick={() => setOpenFaq(openFaq === index ? null : index)} aria-expanded={openFaq === index}><span>{faq.question}</span><ChevronDown size={19} /></button><div className="faq-answer"><p>{faq.answer}</p></div></div>)}</div></div></section>
+        <section className="section faq-section" id="duvidas"><div className="container faq-grid"><div className="faq-intro"><div className="eyebrow eyebrow-coral"><span /> perguntas frequentes</div><h2>Vamos deixar <em>tudo claro.</em></h2><p>Se a sua pergunta não estiver aqui, fale comigo pelo WhatsApp. Cada caso merece ser ouvido com atenção.</p><WhatsAppButton className="button-outline-dark">Falar comigo <ArrowRight size={16} /></WhatsAppButton></div><div className="faq-list">{faqs.map((faq, index) => <div className={`faq-item ${openFaq === index ? "is-open" : ""}`} key={faq.question}><button onClick={() => setOpenFaq(openFaq === index ? null : index)} aria-expanded={openFaq === index}><span>{faq.question}</span><ChevronDown size={18} /></button><div className="faq-answer"><p>{faq.answer}</p></div></div>)}</div></div></section>
+
+        <section className="final-cta"><div className="container final-cta-inner"><div><div className="eyebrow eyebrow-light"><span /> atendimento 100% online</div><h2>Sua voz pode ocupar<br /><em>mais espaço.</em></h2><p>Agende uma conversa inicial e descubra como a fonoaudiologia online pode fazer sentido para você.</p></div><WhatsAppButton className="button-primary button-large"><MessageCircle size={18} /> Agendar avaliação pelo WhatsApp <ArrowRight size={17} /></WhatsAppButton></div></section>
       </main>
 
-      <footer className="site-footer"><div className="container footer-top"><div className="footer-brand"><a href="#top" className="brand-mark"><span className="brand-icon"><Waves size={20} strokeWidth={2.3} /></span><span><strong>voz em foco</strong><small>fonoaudiologia</small></span></a><p>Saúde vocal, comunicação e presença para você viver sua voz por inteiro.</p></div><div className="footer-links"><div><span>explore</span><a href="#especialidades">Especialidades</a><a href="#metodo">Como funciona</a><a href="#depoimentos">Histórias reais</a></div><div><span>converse</span><a href="#contato">Agendar avaliação</a><a href="#faq">Dúvidas frequentes</a><a href="mailto:oi@vozemfoco.com.br">oi@vozemfoco.com.br</a></div></div></div><div className="container footer-bottom"><span>© 2026 Voz em Foco. Todos os direitos reservados.</span><span className="social-links"><a href="#contato" aria-label="Instagram"><Instagram size={17} /></a><a href="#contato" aria-label="LinkedIn"><Linkedin size={17} /></a></span><span>feito para vozes únicas.</span></div></footer>
+      <footer className="site-footer"><div className="container footer-main"><a href="#inicio" className="brand-mark"><span className="brand-icon"><Waves size={19} /></span><span><strong>voz em foco</strong><small>fonoaudiologia online</small></span></a><div className="footer-nav"><a href="#necessidades">Necessidades</a><a href="#online">Terapia online</a><a href="#quem-sou">Quem sou eu</a><a href="#duvidas">Dúvidas</a></div><a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="footer-whatsapp"><MessageCircle size={16} /> WhatsApp</a></div><div className="container footer-bottom"><span>© 2026 Voz em Foco. Todos os direitos reservados.</span><span>Atendimento fonoaudiológico online.</span></div></footer>
     </div>
   );
 }
