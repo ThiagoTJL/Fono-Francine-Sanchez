@@ -163,7 +163,23 @@ export default function Home() {
         </section>
 
         <section className="section section-soft" id="quem-sou">
-          <div className="container about-grid"><div className="about-photo"><img src="/manus-storage/hero-voz-em-foco_912882ab.jpg" alt="Foto ilustrativa para substituir pela foto profissional da fonoaudióloga" /><div className="photo-editable">Foto profissional<br /><small>substituir no projeto</small></div></div><div className="about-copy"><div className="eyebrow eyebrow-coral"><span /> uma conversa de perto</div><h2>Quem sou <em>eu</em></h2><p className="editable-note">[NOME DA FONOAUDIÓLOGA]</p><p className="about-role">[FORMAÇÃO E CRFa — preencher]</p><p>Meu trabalho é oferecer um espaço acolhedor para você entender sua voz, sua fala e suas possibilidades de comunicação. O atendimento é construído de forma individualizada, com escuta cuidadosa, orientação clara e estratégias que façam sentido para a sua rotina.</p><p>Atuo com foco em voz, fala, dicção, oratória e acompanhamento vocal. Na modalidade online, você conta com acompanhamento profissional de onde estiver, sem abrir mão da proximidade e do cuidado.</p><div className="about-tags"><span>[ESPECIALIDADE]</span><span>[ÁREA DE ATUAÇÃO]</span><span>fonoaudiologia online</span></div><WhatsAppButton className="button-dark">Fale comigo pelo WhatsApp <MessageCircle size={16} /></WhatsAppButton></div></div>
+          <div className="container about-grid">
+            <div className="about-photo">
+              <img src="/manus-storage/hero-voz-em-foco_912882ab.jpg" alt="Foto ilustrativa da Dra. Francine Y. Sanchez Lemes em um ambiente de atendimento vocal" />
+              <div className="photo-editable">Foto profissional<br /><small>substituir no projeto</small></div>
+            </div>
+            <div className="about-copy">
+              <div className="eyebrow eyebrow-coral"><span /> uma conversa de perto</div>
+              <h2>Quem sou <em>eu</em></h2>
+              <p className="editable-note">Dra. Francine Y. Sanchez Lemes</p>
+              <p className="about-role">CRFa 2-22090</p>
+              <p>Sou fonoaudióloga formada pela USP, com especialização em voz profissional, comunicação e canto.</p>
+              <p>Atuo com uma abordagem personalizada, acolhedora e baseada em evidências, atendendo crianças, adultos e profissionais da voz de forma online para todo o Brasil e exterior.</p>
+              <p>Meu propósito é ajudar cada pessoa a se comunicar melhor, com mais confiança e qualidade de vida, respeitando suas necessidades e sua individualidade.</p>
+              <div className="about-tags"><span>voz profissional</span><span>comunicação e canto</span><span>fonoaudiologia online</span></div>
+              <WhatsAppButton className="button-dark">Fale comigo pelo WhatsApp <MessageCircle size={16} /></WhatsAppButton>
+            </div>
+          </div>
         </section>
 
         <section className="section section-white evaluation-section">
