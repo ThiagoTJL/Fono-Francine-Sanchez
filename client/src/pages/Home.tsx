@@ -88,8 +88,7 @@ export default function Home() {
       <header className="site-header">
         <div className="container header-inner">
           <a href="#inicio" className="brand-mark" aria-label="Clínica la Vie - início">
-            <span className="brand-icon"><Waves size={19} /></span>
-            <span><strong>Clínica la Vie</strong><small>fonoaudiologia online</small></span>
+            <img className="clinic-logo" src="/manus-storage/clinica-la-vie-logo_52749000.png" alt="Clínica la Vie — Francine Sanchez Lemes, fonoaudióloga" />
           </a>
           <nav className="desktop-nav" aria-label="Navegação principal">
             <a href="#necessidades">Necessidades</a>
@@ -129,31 +128,19 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="section section-mint" id="online" style={{ backgroundColor: '#f59794' }}>
+        <section className="section section-mint" id="online">
           <div className="container online-grid">
-            <div className="online-copy" style={{ color: '#ffffff' }}>
-              <div className="eyebrow eyebrow-coral" style={{ color: '#ffffff' }}><span /> simples, próximo e personalizado</div>
-              <h2 style={{ color: '#ffffff' }}>Como funciona a <em style={{ color: '#f5f5f5' }}>fonoaudiologia online?</em></h2>
-              <p style={{ color: '#ffffff' }}>O cuidado acontece ao vivo, por videochamada, com a mesma atenção de um atendimento individualizado — sem deslocamento e no ritmo da sua rotina.</p>
+            <div className="online-copy">
+              <div className="eyebrow eyebrow-coral"><span /> simples, próximo e personalizado</div>
+              <h2>Como funciona a <em>fonoaudiologia online?</em></h2>
+              <p>O cuidado acontece ao vivo, por videochamada, com a mesma atenção de um atendimento individualizado — sem deslocamento e no ritmo da sua rotina.</p>
               <WhatsAppButton className="button-dark">Quero saber mais sobre a terapia online <ArrowRight size={17} /></WhatsAppButton>
             </div>
-            <div className="online-features" style={{ color: '#ffffff' }}>
-              <div className="feature-row">
-                <span style={{ backgroundColor: '#f59794', color: '#ffffff' }}><Video size={20} /></span>
-                <div><strong style={{ color: '#ffffff' }}>Videochamada ao vivo</strong><p style={{ color: '#ffffff' }}>Um encontro reservado e focado em você.</p></div>
-              </div>
-              <div className="feature-row">
-                <span style={{ backgroundColor: '#f59794', color: '#ffffff' }}><UserRound size={20} /></span>
-                <div><strong style={{ color: '#ffffff' }}>Sessões individuais</strong><p style={{ color: '#ffffff' }}>Orientações que respeitam sua história e seus objetivos.</p></div>
-              </div>
-              <div className="feature-row">
-                <span style={{ backgroundColor: '#f59794', color: '#ffffff' }}><Laptop2 size={20} /></span>
-                <div><strong style={{ color: '#ffffff' }}>De qualquer lugar</strong><p style={{ color: '#ffffff' }}>Faça sua sessão de onde estiver, com mais comodidade.</p></div>
-              </div>
-              <div className="feature-row">
-                <span style={{ backgroundColor: '#f59794', color: '#ffffff' }}><Sparkles size={20} /></span>
-                <div><strong style={{ color: '#ffffff' }}>Prática entre as sessões</strong><p style={{ color: '#ffffff' }}>Exercícios e acompanhamento para levar o cuidado à rotina.</p></div>
-              </div>
+            <div className="online-features">
+              <div className="feature-row"><span><Video size={20} /></span><div><strong>Videochamada ao vivo</strong><p>Um encontro reservado e focado em você.</p></div></div>
+              <div className="feature-row"><span><UserRound size={20} /></span><div><strong>Sessões individuais</strong><p>Orientações que respeitam sua história e seus objetivos.</p></div></div>
+              <div className="feature-row"><span><Laptop2 size={20} /></span><div><strong>De qualquer lugar</strong><p>Faça sua sessão de onde estiver, com mais comodidade.</p></div></div>
+              <div className="feature-row"><span><Sparkles size={20} /></span><div><strong>Prática entre as sessões</strong><p>Exercícios e acompanhamento para levar o cuidado à rotina.</p></div></div>
             </div>
           </div>
         </section>
@@ -190,7 +177,7 @@ export default function Home() {
         <section className="final-cta"><div className="container final-cta-inner"><div><div className="eyebrow eyebrow-light"><span /> atendimento 100% online</div><h2>Sua voz pode ocupar<br /><em>mais espaço.</em></h2><p>Agende uma conversa inicial e descubra como a fonoaudiologia online pode fazer sentido para você.</p></div><WhatsAppButton className="button-primary button-large"><MessageCircle size={18} /> Agendar avaliação pelo WhatsApp <ArrowRight size={17} /></WhatsAppButton></div></section>
       </main>
 
-      <footer className="site-footer"><div className="container footer-main"><a href="#inicio" className="brand-mark"><span className="brand-icon"><Waves size={19} /></span><span><strong>Clínica la Vie</strong><small>fonoaudiologia online</small></span></a><div className="footer-nav"><a href="#necessidades">Necessidades</a><a href="#online">Terapia online</a><a href="#quem-sou">Quem sou eu</a><a href="#duvidas">Dúvidas</a></div><a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="footer-whatsapp"><MessageCircle size={16} /> WhatsApp</a></div><div className="container footer-bottom"><span>© 2026 Clínica la Vie. Todos os direitos reservados.</span><span>Atendimento fonoaudiológico online.</span></div></footer>
+      <footer className="site-footer"><div className="container footer-main"><a href="#inicio" className="brand-mark"><img className="clinic-logo clinic-logo-footer" src="/manus-storage/clinica-la-vie-logo_52749000.png" alt="Clínica la Vie — Francine Sanchez Lemes, fonoaudióloga" /></a><div className="footer-nav"><a href="#necessidades">Necessidades</a><a href="#online">Terapia online</a><a href="#quem-sou">Quem sou eu</a><a href="#duvidas">Dúvidas</a></div><a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="footer-whatsapp"><MessageCircle size={16} /> WhatsApp</a></div><div className="container footer-bottom"><span>© 2026 Clínica la Vie. Todos os direitos reservados.</span><span>Atendimento fonoaudiológico online.</span></div></footer>
     </div>
   );
 }
