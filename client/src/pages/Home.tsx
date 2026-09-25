@@ -129,10 +129,32 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="section section-mint" id="online">
+        <section className="section section-mint" id="online" style={{ backgroundColor: '#f59794' }}>
           <div className="container online-grid">
-            <div className="online-copy"><div className="eyebrow eyebrow-coral"><span /> simples, próximo e personalizado</div><h2>Como funciona a <em>fonoaudiologia online?</em></h2><p>O cuidado acontece ao vivo, por videochamada, com a mesma atenção de um atendimento individualizado — sem deslocamento e no ritmo da sua rotina.</p><WhatsAppButton className="button-dark">Quero saber mais sobre a terapia online <ArrowRight size={17} /></WhatsAppButton></div>
-            <div className="online-features"><div className="feature-row"><span><Video size={20} /></span><div><strong>Videochamada ao vivo</strong><p>Um encontro reservado e focado em você.</p></div></div><div className="feature-row"><span><UserRound size={20} /></span><div><strong>Sessões individuais</strong><p>Orientações que respeitam sua história e seus objetivos.</p></div></div><div className="feature-row"><span><Laptop2 size={20} /></span><div><strong>De qualquer lugar</strong><p>Faça sua sessão de onde estiver, com mais comodidade.</p></div></div><div className="feature-row"><span><Sparkles size={20} /></span><div><strong>Prática entre as sessões</strong><p>Exercícios e acompanhamento para levar o cuidado à rotina.</p></div></div></div>
+            <div className="online-copy" style={{ color: '#ffffff' }}>
+              <div className="eyebrow eyebrow-coral" style={{ color: '#ffffff' }}><span /> simples, próximo e personalizado</div>
+              <h2 style={{ color: '#ffffff' }}>Como funciona a <em style={{ color: '#f5f5f5' }}>fonoaudiologia online?</em></h2>
+              <p style={{ color: '#ffffff' }}>O cuidado acontece ao vivo, por videochamada, com a mesma atenção de um atendimento individualizado — sem deslocamento e no ritmo da sua rotina.</p>
+              <WhatsAppButton className="button-dark">Quero saber mais sobre a terapia online <ArrowRight size={17} /></WhatsAppButton>
+            </div>
+            <div className="online-features" style={{ color: '#ffffff' }}>
+              <div className="feature-row">
+                <span style={{ backgroundColor: '#f59794', color: '#ffffff' }}><Video size={20} /></span>
+                <div><strong style={{ color: '#ffffff' }}>Videochamada ao vivo</strong><p style={{ color: '#ffffff' }}>Um encontro reservado e focado em você.</p></div>
+              </div>
+              <div className="feature-row">
+                <span style={{ backgroundColor: '#f59794', color: '#ffffff' }}><UserRound size={20} /></span>
+                <div><strong style={{ color: '#ffffff' }}>Sessões individuais</strong><p style={{ color: '#ffffff' }}>Orientações que respeitam sua história e seus objetivos.</p></div>
+              </div>
+              <div className="feature-row">
+                <span style={{ backgroundColor: '#f59794', color: '#ffffff' }}><Laptop2 size={20} /></span>
+                <div><strong style={{ color: '#ffffff' }}>De qualquer lugar</strong><p style={{ color: '#ffffff' }}>Faça sua sessão de onde estiver, com mais comodidade.</p></div>
+              </div>
+              <div className="feature-row">
+                <span style={{ backgroundColor: '#f59794', color: '#ffffff' }}><Sparkles size={20} /></span>
+                <div><strong style={{ color: '#ffffff' }}>Prática entre as sessões</strong><p style={{ color: '#ffffff' }}>Exercícios e acompanhamento para levar o cuidado à rotina.</p></div>
+              </div>
+            </div>
           </div>
         </section>
 
