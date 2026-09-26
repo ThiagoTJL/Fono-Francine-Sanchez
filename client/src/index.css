@@ -20,8 +20,8 @@ h1 em,h2 em { color:var(--coral); font-style:italic; font-weight:500; }
 .site-header { position:absolute; z-index:10; top:0; left:0; right:0; background:rgba(255,250,250,.9); border-bottom:1px solid rgba(234,214,222,.86); backdrop-filter:blur(13px); }
 .header-inner { display:flex; align-items:center; justify-content:space-between; gap:12px; min-height:72px; }
 .brand-mark { display:inline-flex; align-items:center; gap:10px; line-height:1; }
-.clinic-logo { display:block; width:128px; height:48px; object-fit:contain; object-position:left center; }
-.clinic-logo-footer { width:155px; height:62px; }
+.clinic-logo { display:block; width:162px; height:58px; object-fit:contain; object-position:left center; }
+.clinic-logo-footer { width:180px; height:68px; }
 .desktop-nav { display:none; }
 .button { display:inline-flex; align-items:center; justify-content:center; gap:9px; width:max-content; border:0; border-radius:999px; padding:12px 17px; font-size:11px; font-weight:700; transition:transform .18s ease,box-shadow .2s ease,background .2s ease; }
 .button:hover { transform:translateY(-2px); box-shadow:0 10px 22px rgba(91,59,72,.12); }
@@ -93,11 +93,11 @@ h1 { margin:20px 0; color:var(--ink); font-size:51px; line-height:.98; }
 .feature-row p { margin-top:5px; color:#806a74; font-size:12px; line-height:1.55; }
 
 .benefits-visual { position:relative; width:100%; max-width:390px; height:330px; margin:0 auto; overflow:hidden; background:var(--mint-strong); border-radius:165px 165px 15px 15px; }
-.benefits-photo { width:100%; height:100%; object-fit:cover; object-position:center; filter:saturate(.94); }
+.benefits-photo { width:100%; height:100%; object-fit:contain; object-position:center; background:var(--mint-strong); filter:saturate(.94); }
 .benefit-circle { position:absolute; border:1px solid rgba(181,107,130,.22); border-radius:50%; }
 .circle-one { width:270px; height:270px; top:29px; left:50%; transform:translateX(-50%); box-shadow:0 0 0 24px rgba(255,255,255,.2),0 0 0 48px rgba(255,255,255,.12); }
 .circle-two { width:165px; height:165px; top:81px; left:50%; transform:translateX(-50%); }
-.benefit-quote { position:absolute; top:50%; left:50%; display:flex; align-items:center; gap:10px; transform:translate(-50%,-50%); width:max-content; padding:12px 14px; border-radius:10px; background:rgba(255,255,255,.9); color:var(--coral); box-shadow:0 12px 24px rgba(181,107,130,.09); }
+.benefit-quote { position:absolute; left:50%; bottom:18px; display:flex; align-items:center; gap:10px; transform:translateX(-50%); width:max-content; padding:12px 14px; border-radius:10px; background:rgba(255,255,255,.92); color:var(--coral); box-shadow:0 12px 24px rgba(181,107,130,.09); }
 .benefit-quote span { color:var(--ink-soft); font-family:'Fraunces',serif; font-size:14px; line-height:1.1; }
 .benefit-quote strong { color:var(--ink); font-weight:500; }
 .benefits-copy > p { margin:20px 0; }
@@ -106,7 +106,7 @@ h1 { margin:20px 0; color:var(--ink); font-size:51px; line-height:.98; }
 .check-list svg { color:var(--coral); }
 
 .about-photo { position:relative; width:100%; max-width:390px; height:390px; margin:0 auto; overflow:hidden; border-radius:195px 195px 14px 14px; background:var(--mint-strong); }
-.about-photo img { width:100%; height:100%; object-fit:cover; object-position:center; filter:saturate(.93); }
+.about-photo img { width:100%; height:100%; object-fit:contain; object-position:center bottom; filter:saturate(.93); }
 .about-copy h2 { margin-bottom:22px; }
 .about-copy > p { max-width:550px; margin-top:15px; }
 .about-copy .editable-note { margin-top:0; color:var(--ink); font-family:'Fraunces',serif; font-size:24px; }
@@ -185,8 +185,8 @@ h1 { margin:20px 0; color:var(--ink); font-size:51px; line-height:.98; }
 @media (min-width:600px) {
   .container { padding-left:28px; padding-right:28px; }
   .header-inner { min-height:78px; }
-  .clinic-logo { width:145px; height:52px; }
-  .clinic-logo-footer { width:170px; height:68px; }
+  .clinic-logo { width:178px; height:62px; }
+  .clinic-logo-footer { width:190px; height:72px; }
   .hero-inner { padding-top:78px; padding-bottom:65px; }
   h1 { font-size:64px; }
   .hero-subtitle { font-size:16px; }

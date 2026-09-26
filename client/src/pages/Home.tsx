@@ -13,6 +13,7 @@ import {
   MoveUpRight,
   Play,
   ShieldCheck,
+  Speech,
   Sparkles,
   Star,
   UserRound,
@@ -142,7 +143,7 @@ export default function Home() {
             <div className="hero-visual">
               <div className="hero-image-frame"><img src="/manus-storage/796a6962-7c4b-4851-97c5-60c04e3b49d3_db63d12a.png" alt="Dra. Francine Y. Sanchez Lemes, fonoaudióloga" /><div className="hero-image-overlay" /></div>
               <div className="hero-info-card"><span className="info-icon"><Video size={17} /></span><span><small>atendimento por</small><strong>videochamada</strong></span></div>
-              <div className="hero-note-card"><Waves size={19} /><span>Uma voz saudável<br /><strong>para viver sua rotina.</strong></span></div>
+              <div className="hero-note-card"><Speech size={19} /><span>Uma voz saudável<br /><strong>para viver sua rotina.</strong></span></div>
             </div>
           </div>
           <div className="hero-bottom"><div className="container"><span>voz</span><i /><span>fala</span><i /><span>comunicação</span><i /><span>cuidado online</span></div></div>
@@ -173,7 +174,7 @@ export default function Home() {
         </section>
 
         <section className="section section-white benefits-section">
-          <div className="container benefits-grid"><div className="benefits-visual"><img className="benefits-photo" src="/manus-storage/805f9dd8-aaa4-45be-8b0e-50cff0855e29_b6f0e8bb.png" alt="Dra. Francine Sanchez Lemes realizando exercício de voz" /><div className="benefit-quote"><Play size={15} fill="currentColor" /><span>mais presença<br /><strong>ao se comunicar</strong></span></div></div><div className="benefits-copy"><div className="eyebrow eyebrow-green"><span /> o que você leva desse processo</div><h2>Mais conforto para <em>usar sua voz.</em></h2><p>O acompanhamento fonoaudiológico pode ajudar você a perceber melhor sua voz, organizar sua comunicação e construir estratégias para a sua rotina — sem promessas prontas e sem perder a sua autenticidade.</p><div className="check-list"><span><Check size={16} /> Entender seus padrões de voz e fala</span><span><Check size={16} /> Reduzir esforço e tensão ao se comunicar</span><span><Check size={16} /> Desenvolver clareza, presença e confiança</span><span><Check size={16} /> Ter orientação profissional durante o processo</span></div><WhatsAppButton className="button-outline-dark">Agende sua avaliação online <ArrowRight size={16} /></WhatsAppButton></div></div>
+          <div className="container benefits-grid"><div className="benefits-visual"><img className="benefits-photo" src="/manus-storage/805f9dd8-aaa4-45be-8b0e-50cff0855e29_b6f0e8bb.png" alt="Dra. Francine Sanchez Lemes realizando exercício de voz" /><div className="benefit-quote"><Speech size={15} /><span>mais presença<br /><strong>ao se comunicar</strong></span></div></div><div className="benefits-copy"><div className="eyebrow eyebrow-green"><span /> o que você leva desse processo</div><h2>Mais conforto para <em>usar sua voz.</em></h2><p>O acompanhamento fonoaudiológico pode ajudar você a perceber melhor sua voz, organizar sua comunicação e construir estratégias para a sua rotina — sem promessas prontas e sem perder a sua autenticidade.</p><div className="check-list"><span><Check size={16} /> Entender seus padrões de voz e fala</span><span><Check size={16} /> Reduzir esforço e tensão ao se comunicar</span><span><Check size={16} /> Desenvolver clareza, presença e confiança</span><span><Check size={16} /> Ter orientação profissional durante o processo</span></div><WhatsAppButton className="button-outline-dark">Agende sua avaliação online <ArrowRight size={16} /></WhatsAppButton></div></div>
         </section>
 
         <section className="section section-soft" id="quem-sou">
