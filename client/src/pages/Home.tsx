@@ -113,7 +113,7 @@ export default function Home() {
               <div className="hero-trust"><span><Check size={15} /> 100% online</span><span><Check size={15} /> Sessões individuais</span><span><Check size={15} /> De qualquer lugar</span></div>
             </div>
             <div className="hero-visual">
-              <div className="hero-image-frame"><img src="/manus-storage/pasted_file_ZZnPBG_image_9cead630.png" alt="Dra. Francine Y. Sanchez Lemes, fonoaudióloga" /><div className="hero-image-overlay" /></div>
+              <div className="hero-image-frame"><img src="/manus-storage/796a6962-7c4b-4851-97c5-60c04e3b49d3_db63d12a.png" alt="Dra. Francine Y. Sanchez Lemes, fonoaudióloga" /><div className="hero-image-overlay" /></div>
               <div className="hero-info-card"><span className="info-icon"><Video size={17} /></span><span><small>atendimento por</small><strong>videochamada</strong></span></div>
               <div className="hero-note-card"><Waves size={19} /><span>Uma voz saudável<br /><strong>para viver sua rotina.</strong></span></div>
             </div>
