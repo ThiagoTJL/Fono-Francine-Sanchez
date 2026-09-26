@@ -3,6 +3,8 @@ import {
   ArrowRight,
   Check,
   ChevronDown,
+  ChevronLeft,
+  ChevronRight,
   Clock3,
   Instagram,
   Laptop2,
@@ -12,6 +14,7 @@ import {
   Play,
   ShieldCheck,
   Sparkles,
+  Star,
   UserRound,
   Video,
   Volume2,
@@ -74,6 +77,25 @@ const faqs = [
   },
 ];
 
+const googleReviews = [
+  {
+    name: "Elane Melo",
+    text: "Dra. Francine foi muito paciente em cada detalhe, tratamento humanizado, demonstrando muito cuidado e carinho.",
+  },
+  {
+    name: "Pamela Santos",
+    text: "Excelente fonoaudióloga! Muito atenciosa, paciente e extremamente profissional. Explica tudo com clareza, transmite confiança e realiza um atendimento humanizado. Percebi uma grande evolução durante o tratamento. Recomendo de olhos fechados!",
+  },
+  {
+    name: "ninaa Rodrigues",
+    text: "Quero elogiar o atendimento da fonoaudióloga Francine, foi simplesmente incrível, acolhedor, atencioso e feito com muito profissionalismo. Um verdadeiro cuidado com cada detalhe!",
+  },
+  {
+    name: "Angela Maria",
+    text: "Profissional maravilhosa e comprometida com seu trabalho, faz por amor a sua profissão, só tenho a agradecer ❤️",
+  },
+];
+
 function WhatsAppButton({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
     <a className={`button ${className}`} href={WHATSAPP_URL} target="_blank" rel="noreferrer">
@@ -84,6 +106,8 @@ function WhatsAppButton({ children, className = "" }: { children: React.ReactNod
 
 export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const [reviewIndex, setReviewIndex] = useState(0);
+  const currentReview = googleReviews[reviewIndex];
 
   return (
     <div className="online-site">
@@ -96,6 +120,7 @@ export default function Home() {
             <a href="#necessidades">Necessidades</a>
             <a href="#online">Terapia online</a>
             <a href="#quem-sou">Quem sou eu</a>
+            <a href="#avaliacoes">Avaliações</a>
             <a href="#duvidas">Dúvidas</a>
           </nav>
           <WhatsAppButton className="button-header"><MessageCircle size={15} /> Agendar avaliação</WhatsAppButton>
@@ -154,7 +179,7 @@ export default function Home() {
         <section className="section section-soft" id="quem-sou">
           <div className="container about-grid">
             <div className="about-photo">
-              <img src="/manus-storage/pasted_file_ZZnPBG_image_9cead630.png" alt="Dra. Francine Y. Sanchez Lemes, fonoaudióloga" />
+              <img src="/manus-storage/747f50ef-aa35-4fff-abb4-cd6f7c9d84ef_76a7b0e0.png" alt="Dra. Francine Y. Sanchez Lemes, fonoaudióloga" />
             </div>
             <div className="about-copy">
               <div className="eyebrow eyebrow-coral"><span /> uma conversa de perto</div>
@@ -172,6 +197,25 @@ export default function Home() {
 
         <section className="section section-white evaluation-section">
           <div className="container"><div className="section-heading centered"><div className="eyebrow eyebrow-green"><span /> seu primeiro passo</div><h2>Como funciona a <em>avaliação online?</em></h2><p>Uma conversa inicial para entender sua necessidade e explicar o melhor caminho para o seu caso.</p></div><div className="evaluation-grid"><div><span>01</span><Clock3 size={22} /><h3>Você entra em contato</h3><p>Envie uma mensagem pelo WhatsApp e conte brevemente o que gostaria de trabalhar.</p></div><div><span>02</span><MessageCircle size={22} /><h3>A gente conversa</h3><p>Combinamos o melhor horário e o formato da avaliação por videochamada.</p></div><div><span>03</span><ShieldCheck size={22} /><h3>Você entende o plano</h3><p>Depois da avaliação, você recebe orientações claras sobre os próximos passos.</p></div></div><div className="center-cta"><WhatsAppButton className="button-primary button-large"><MessageCircle size={18} /> Agendar minha avaliação online</WhatsAppButton></div></div>
+        </section>
+
+        <section className="section reviews-section" id="avaliacoes">
+          <div className="container reviews-layout">
+            <div className="reviews-intro">
+              <div className="eyebrow eyebrow-coral"><span /> experiência de quem já passou por aqui</div>
+              <h2>A voz de quem <em>confia.</em></h2>
+              <p>Confira avaliações publicadas no Google por pessoas que conheceram o trabalho da Dra. Francine.</p>
+              <div className="google-label"><span className="google-g">G</span><span><strong>Avaliações do Google</strong><small>Publicadas no perfil do Google</small></span></div>
+            </div>
+            <div className="reviews-carousel" aria-label="Carrossel estático de avaliações do Google">
+              <div className="review-card">
+                <div className="review-card-top"><div className="google-label compact"><span className="google-g">G</span><span><strong>Google</strong><small>Avaliação publicada</small></span></div><div className="review-stars" aria-label="5 estrelas">{Array.from({ length: 5 }).map((_, index) => <Star key={index} size={17} fill="currentColor" />)}</div></div>
+                <blockquote>“{currentReview.text}”</blockquote>
+                <div className="review-author"><span className="review-avatar">{currentReview.name.charAt(0)}</span><strong>{currentReview.name}</strong></div>
+              </div>
+              <div className="reviews-controls"><button type="button" onClick={() => setReviewIndex((reviewIndex - 1 + googleReviews.length) % googleReviews.length)} aria-label="Avaliação anterior"><ChevronLeft size={18} /></button><div className="review-dots">{googleReviews.map((review, index) => <button type="button" key={review.name} className={index === reviewIndex ? "is-active" : ""} onClick={() => setReviewIndex(index)} aria-label={`Ver avaliação de ${review.name}`} />)}</div><button type="button" onClick={() => setReviewIndex((reviewIndex + 1) % googleReviews.length)} aria-label="Próxima avaliação"><ChevronRight size={18} /></button></div>
+            </div>
+          </div>
         </section>
 
         <section className="section faq-section" id="duvidas"><div className="container faq-grid"><div className="faq-intro"><div className="eyebrow eyebrow-coral"><span /> perguntas frequentes</div><h2>Vamos deixar <em>tudo claro.</em></h2><p>Se a sua pergunta não estiver aqui, fale comigo pelo WhatsApp. Cada caso merece ser ouvido com atenção.</p><WhatsAppButton className="button-outline-dark">Falar comigo <ArrowRight size={16} /></WhatsAppButton></div><div className="faq-list">{faqs.map((faq, index) => <div className={`faq-item ${openFaq === index ? "is-open" : ""}`} key={faq.question}><button onClick={() => setOpenFaq(openFaq === index ? null : index)} aria-expanded={openFaq === index}><span>{faq.question}</span><ChevronDown size={18} /></button><div className="faq-answer"><p>{faq.answer}</p></div></div>)}</div></div></section>
