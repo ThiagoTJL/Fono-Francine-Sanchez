@@ -4,6 +4,7 @@ import {
   Check,
   ChevronDown,
   Clock3,
+  Instagram,
   Laptop2,
   MessageCircle,
   Mic2,
@@ -20,6 +21,7 @@ import {
 // Edite somente esta constante quando quiser trocar o WhatsApp principal.
 const WHATSAPP_URL =
   "https://wa.me/5514991089006?text=Ol%C3%A1%21%20Vi%20o%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20fonoaudiologia%20online%20e%20agendar%20uma%20avalia%C3%A7%C3%A3o";
+const INSTAGRAM_URL = "https://www.instagram.com/fonofrancinesanchez/";
 
 const focusAreas = [
   {
@@ -146,7 +148,7 @@ export default function Home() {
         </section>
 
         <section className="section section-white benefits-section">
-          <div className="container benefits-grid"><div className="benefits-visual"><div className="benefit-circle circle-one" /><div className="benefit-circle circle-two" /><div className="benefit-quote"><Play size={15} fill="currentColor" /><span>mais presença<br /><strong>ao se comunicar</strong></span></div></div><div className="benefits-copy"><div className="eyebrow eyebrow-green"><span /> o que você leva desse processo</div><h2>Mais conforto para <em>usar sua voz.</em></h2><p>O acompanhamento fonoaudiológico pode ajudar você a perceber melhor sua voz, organizar sua comunicação e construir estratégias para a sua rotina — sem promessas prontas e sem perder a sua autenticidade.</p><div className="check-list"><span><Check size={16} /> Entender seus padrões de voz e fala</span><span><Check size={16} /> Reduzir esforço e tensão ao se comunicar</span><span><Check size={16} /> Desenvolver clareza, presença e confiança</span><span><Check size={16} /> Ter orientação profissional durante o processo</span></div><WhatsAppButton className="button-outline-dark">Agende sua avaliação online <ArrowRight size={16} /></WhatsAppButton></div></div>
+          <div className="container benefits-grid"><div className="benefits-visual"><img className="benefits-photo" src="/manus-storage/805f9dd8-aaa4-45be-8b0e-50cff0855e29_b6f0e8bb.png" alt="Dra. Francine Sanchez Lemes realizando exercício de voz" /><div className="benefit-quote"><Play size={15} fill="currentColor" /><span>mais presença<br /><strong>ao se comunicar</strong></span></div></div><div className="benefits-copy"><div className="eyebrow eyebrow-green"><span /> o que você leva desse processo</div><h2>Mais conforto para <em>usar sua voz.</em></h2><p>O acompanhamento fonoaudiológico pode ajudar você a perceber melhor sua voz, organizar sua comunicação e construir estratégias para a sua rotina — sem promessas prontas e sem perder a sua autenticidade.</p><div className="check-list"><span><Check size={16} /> Entender seus padrões de voz e fala</span><span><Check size={16} /> Reduzir esforço e tensão ao se comunicar</span><span><Check size={16} /> Desenvolver clareza, presença e confiança</span><span><Check size={16} /> Ter orientação profissional durante o processo</span></div><WhatsAppButton className="button-outline-dark">Agende sua avaliação online <ArrowRight size={16} /></WhatsAppButton></div></div>
         </section>
 
         <section className="section section-soft" id="quem-sou">
@@ -177,7 +179,7 @@ export default function Home() {
         <section className="final-cta"><div className="container final-cta-inner"><div><div className="eyebrow eyebrow-light"><span /> atendimento 100% online</div><h2>Sua voz pode ocupar<br /><em>mais espaço.</em></h2><p>Agende uma conversa inicial e descubra como a fonoaudiologia online pode fazer sentido para você.</p></div><WhatsAppButton className="button-primary button-large"><MessageCircle size={18} /> Agendar avaliação pelo WhatsApp <ArrowRight size={17} /></WhatsAppButton></div></section>
       </main>
 
-      <footer className="site-footer"><div className="container footer-main"><a href="#inicio" className="brand-mark"><img className="clinic-logo clinic-logo-footer" src="/manus-storage/clinica-la-vie-logo_52749000.png" alt="Clínica la Vie — Francine Sanchez Lemes, fonoaudióloga" /></a><div className="footer-nav"><a href="#necessidades">Necessidades</a><a href="#online">Terapia online</a><a href="#quem-sou">Quem sou eu</a><a href="#duvidas">Dúvidas</a></div><a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="footer-whatsapp"><MessageCircle size={16} /> WhatsApp</a></div><div className="container footer-bottom"><span>© 2026 Clínica la Vie. Todos os direitos reservados.</span><span>Atendimento fonoaudiológico online.</span></div></footer>
+      <footer className="site-footer"><div className="container footer-main"><a href="#inicio" className="brand-mark"><img className="clinic-logo clinic-logo-footer" src="/manus-storage/clinica-la-vie-logo_52749000.png" alt="Clínica la Vie — Francine Sanchez Lemes, fonoaudióloga" /></a><div className="footer-nav"><a href="#necessidades">Necessidades</a><a href="#online">Terapia online</a><a href="#quem-sou">Quem sou eu</a><a href="#duvidas">Dúvidas</a></div><div className="footer-socials"><a href={INSTAGRAM_URL} target="_blank" rel="noreferrer" className="footer-instagram" aria-label="Instagram da Dra. Francine Sanchez Lemes"><Instagram size={17} /> <span>Instagram</span></a><a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="footer-whatsapp"><MessageCircle size={16} /> WhatsApp</a></div></div><div className="container footer-bottom"><span>© 2026 Clínica la Vie. Todos os direitos reservados.</span><span>Atendimento fonoaudiológico online.</span></div></footer>
     </div>
   );
 }
