@@ -54,17 +54,22 @@ const faqs = [
   {
     question: "Como funciona a fonoaudiologia online?",
     answer:
-      "As sessões acontecem individualmente por videochamada, em um horário combinado. Na avaliação, conversamos sobre sua história, sua rotina vocal e seus objetivos para construir um acompanhamento personalizado.",
+      "As sessões acontecem individualmente por videochamada, em um horário combinado. Na consulta, conversamos sobre sua história, sua rotina vocal e seus objetivos para construir uma avaliação e um acompanhamento personalizado.",
   },
   {
     question: "A terapia online funciona para voz, dicção e oratória?",
     answer:
-      "Em muitos casos, sim. Voz, fala, respiração, articulação e comunicação podem ser observadas e trabalhadas por videochamada com orientações e exercícios adaptados à sua necessidade.",
+      "Sim. Voz, fala, respiração, articulação e comunicação podem ser observadas e trabalhadas por videochamada com orientações e exercícios adaptados à sua necessidade.",
   },
   {
     question: "Atende casos de nódulos ou paralisia de prega vocal?",
     answer:
-      "Esses casos podem ser acompanhados de forma individualizada e, quando necessário, em conjunto com o otorrinolaringologista responsável. Cada plano respeita o diagnóstico e a etapa do cuidado.",
+      "Sim. A fonoterapia pode acompanhar casos de nódulos e paralisia de prega vocal com um plano individualizado, respeitando o diagnóstico e a etapa do cuidado.",
+  },
+  {
+    question: "Para quem é a fonoterapia online?",
+    answer:
+      "A fonoterapia online é para youtubers, cantores, pastores, professores, líderes, ministros de louvor, profissionais da voz, idosos e para qualquer pessoa que queira cuidar da voz, da fala e da comunicação.",
   },
   {
     question: "Preciso ter equipamentos especiais para a sessão?",
@@ -134,7 +139,7 @@ export default function Home() {
             <div className="hero-content">
               <div className="eyebrow"><span /> fonoaudiologia online</div>
               <h1>Cuide da sua voz <em>de onde estiver.</em></h1>
-              <p className="hero-subtitle">Terapia fonoaudiológica online, por videochamada e com atendimento individualizado para sua voz, sua fala e sua comunicação.</p>
+              <p className="hero-subtitle">Terapia fonoaudiológica online em todo o Brasil e exterior, por videochamada e com atendimento individualizado para sua voz, sua fala e sua comunicação.</p>
               <div className="hero-actions">
                 <WhatsAppButton className="button-primary button-large"><MessageCircle size={18} /> Agendar avaliação pelo WhatsApp</WhatsAppButton>
               </div>
@@ -188,7 +193,7 @@ export default function Home() {
               <p className="editable-note">Dra. Francine Y. Sanchez Lemes</p>
               <p className="about-role">CRFa 2-22090</p>
               <p>Sou fonoaudióloga formada pela USP, com especialização em voz profissional, comunicação e canto.</p>
-              <p>Atuo com uma abordagem personalizada, acolhedora e baseada em evidências, atendendo crianças, adultos e profissionais da voz de forma online para todo o Brasil e exterior.</p>
+              <p>Atuo com uma abordagem personalizada, acolhedora e baseada em evidências, atendendo adultos, profissionais da voz e crianças de forma online para todo o Brasil e exterior.</p>
               <p>Meu propósito é ajudar cada pessoa a se comunicar melhor, com mais confiança e qualidade de vida, respeitando suas necessidades e sua individualidade.</p>
               <div className="about-tags"><span>voz profissional</span><span>comunicação e canto</span><span>fonoaudiologia online</span></div>
               <WhatsAppButton className="button-dark">Fale comigo pelo WhatsApp <MessageCircle size={16} /></WhatsAppButton>
