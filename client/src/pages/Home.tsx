@@ -87,7 +87,7 @@ const faqs = [
   {
     question: "Para quem é a fonoterapia online?",
     answer:
-      "A fonoterapia online é para youtubers, cantores, pastores, professores, líderes, ministros de louvor, profissionais da voz, idosos e para qualquer pessoa que queira cuidar da voz, da fala e da comunicação.",
+      "A fonoterapia online é para youtubers, cantores, pastores, professores, líderes, ministros de louvor, profissionais da voz, palestrantes, idosos e para qualquer pessoa que queira cuidar da voz, da fala e da comunicação.",
   },
   {
     question: "Preciso ter equipamentos especiais para a sessão?",
