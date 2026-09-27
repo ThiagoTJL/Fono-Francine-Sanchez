@@ -24,7 +24,7 @@ import {
 
 // Edite somente esta constante quando quiser trocar o WhatsApp principal.
 const WHATSAPP_URL =
-  "https://wa.me/5514991089006?text=Ol%C3%A1%21%20Vi%20o%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20fonoaudiologia%20online%20e%20agendar%20uma%20avalia%C3%A7%C3%A3o";
+  "https://wa.me/5514991089006?text=Ol%C3%A1%21%20Vi%20o%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20fonoaudiologia%20online%20e%20agendar%20uma%20consulta";
 const INSTAGRAM_URL = "https://www.instagram.com/fonofrancinesanchez/";
 
 const focusAreas = [
