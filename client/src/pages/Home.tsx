@@ -27,6 +27,22 @@ const WHATSAPP_URL =
   "https://wa.me/5514991089006?text=Ol%C3%A1%21%20Vi%20o%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20fonoaudiologia%20online%20e%20agendar%20uma%20consulta";
 const INSTAGRAM_URL = "https://www.instagram.com/fonofrancinesanchez/";
 
+declare global {
+  interface Window {
+    umami?: {
+      track: (eventName: string, eventData?: Record<string, string>) => void;
+    };
+  }
+}
+
+function trackWhatsAppClick(source: string) {
+  try {
+    window.umami?.track("whatsapp_click", { source });
+  } catch {
+    // O clique e a abertura do WhatsApp não são bloqueados se o analytics falhar.
+  }
+}
+
 const focusAreas = [
   {
     icon: Volume2,
@@ -104,7 +120,7 @@ const googleReviews = [
 
 function WhatsAppButton({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return (
-    <a className={`button ${className}`} href={WHATSAPP_URL} target="_blank" rel="noreferrer">
+    <a className={`button ${className}`} href={WHATSAPP_URL} target="_blank" rel="noreferrer" onClick={() => trackWhatsAppClick("cta") }>
       {children}
     </a>
   );
@@ -157,7 +173,7 @@ export default function Home() {
         <section className="section section-white" id="necessidades">
           <div className="container">
             <div className="section-heading two-columns"><div><div className="eyebrow eyebrow-green"><span /> cuidado para a sua necessidade</div><h2>O que você gostaria de <em>transformar?</em></h2></div><p>Você não precisa conviver com uma voz cansada, presa ou imprevisível. O acompanhamento começa entendendo o que está acontecendo e o que você deseja conquistar.</p></div>
-            <div className="areas-grid">{focusAreas.map((area, index) => { const Icon = area.icon; return <article className="area-card" key={area.title}><span className="area-number">0{index + 1}</span><span className="area-icon"><Icon size={21} /></span><h3>{area.title}</h3><p>{area.text}</p><a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="card-link">Quero saber mais <MoveUpRight size={15} /></a></article>; })}</div>
+            <div className="areas-grid">{focusAreas.map((area, index) => { const Icon = area.icon; return <article className="area-card" key={area.title}><span className="area-number">0{index + 1}</span><span className="area-icon"><Icon size={21} /></span><h3>{area.title}</h3><p>{area.text}</p><a href={WHATSAPP_URL} target="_blank" rel="noreferrer" onClick={() => trackWhatsAppClick("necessidade_card")} className="card-link">Quero saber mais <MoveUpRight size={15} /></a></article>; })}</div>
           </div>
         </section>
 
@@ -229,8 +245,8 @@ export default function Home() {
         <section className="final-cta"><div className="container final-cta-inner"><div><div className="eyebrow eyebrow-light"><span /> atendimento 100% online</div><h2>Sua voz pode ocupar<br /><em>mais espaço.</em></h2><p>Agende uma conversa inicial e descubra como a fonoaudiologia online pode fazer sentido para você.</p></div><WhatsAppButton className="button-primary button-large"><MessageCircle size={18} /> Agendar avaliação pelo WhatsApp <ArrowRight size={17} /></WhatsAppButton></div></section>
       </main>
 
-        <footer className="site-footer"><div className="container footer-main"><a href="#inicio" className="brand-mark"><img className="clinic-logo clinic-logo-footer" src="/manus-storage/clinica-la-vie-logo_52749000.png" alt="Clínica la Vie — Francine Sanchez Lemes, fonoaudióloga" /></a><div className="footer-nav"><a href="#necessidades">Necessidades</a><a href="#online">Terapia online</a><a href="#quem-sou">Quem sou eu</a><a href="#duvidas">Dúvidas</a></div><div className="footer-socials"><a href={INSTAGRAM_URL} target="_blank" rel="noreferrer" className="footer-instagram" aria-label="Instagram da Dra. Francine Sanchez Lemes"><Instagram size={17} /> <span>Instagram</span></a><a href={WHATSAPP_URL} target="_blank" rel="noreferrer" className="footer-whatsapp"><MessageCircle size={16} /> WhatsApp</a></div></div><div className="container footer-bottom"><span>© 2026 Clínica la Vie. Todos os direitos reservados.</span><span>Atendimento fonoaudiológico online.</span></div></footer>
-        <a className="floating-whatsapp" href={WHATSAPP_URL} target="_blank" rel="noreferrer" aria-label="Agendar consulta pelo WhatsApp" title="Agendar consulta pelo WhatsApp"><MessageCircle size={23} /><span>Agendar pelo WhatsApp</span></a>
+        <footer className="site-footer"><div className="container footer-main"><a href="#inicio" className="brand-mark"><img className="clinic-logo clinic-logo-footer" src="/manus-storage/clinica-la-vie-logo_52749000.png" alt="Clínica la Vie — Francine Sanchez Lemes, fonoaudióloga" /></a><div className="footer-nav"><a href="#necessidades">Necessidades</a><a href="#online">Terapia online</a><a href="#quem-sou">Quem sou eu</a><a href="#duvidas">Dúvidas</a></div><div className="footer-socials"><a href={INSTAGRAM_URL} target="_blank" rel="noreferrer" className="footer-instagram" aria-label="Instagram da Dra. Francine Sanchez Lemes"><Instagram size={17} /> <span>Instagram</span></a><a href={WHATSAPP_URL} target="_blank" rel="noreferrer" onClick={() => trackWhatsAppClick("footer")} className="footer-whatsapp"><MessageCircle size={16} /> WhatsApp</a></div></div><div className="container footer-bottom"><span>© 2026 Clínica la Vie. Todos os direitos reservados.</span><span>Atendimento fonoaudiológico online.</span></div></footer>
+        <a className="floating-whatsapp" href={WHATSAPP_URL} target="_blank" rel="noreferrer" onClick={() => trackWhatsAppClick("floating_button")} aria-label="Agendar consulta pelo WhatsApp" title="Agendar consulta pelo WhatsApp"><MessageCircle size={23} /><span>Agendar pelo WhatsApp</span></a>
     </div>
   );
 }
