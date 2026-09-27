@@ -8,6 +8,7 @@ import {
   Clock3,
   Instagram,
   Laptop2,
+  Menu,
   MessageCircle,
   Mic2,
   MoveUpRight,
@@ -20,6 +21,7 @@ import {
   Video,
   Volume2,
   Waves,
+  X,
 } from "lucide-react";
 
 // Edite somente esta constante quando quiser trocar o WhatsApp principal.
@@ -129,7 +131,10 @@ function WhatsAppButton({ children, className = "" }: { children: React.ReactNod
 export default function Home() {
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [reviewIndex, setReviewIndex] = useState(0);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const currentReview = googleReviews[reviewIndex];
+
+  const closeMobileMenu = () => setMobileMenuOpen(false);
 
   return (
     <div className="online-site">
@@ -145,8 +150,15 @@ export default function Home() {
             <a href="#avaliacoes">Avaliações</a>
             <a href="#duvidas">Dúvidas</a>
           </nav>
-          <WhatsAppButton className="button-header"><MessageCircle size={15} /> Agendar avaliação</WhatsAppButton>
+          <div className="header-actions"><WhatsAppButton className="button-header"><MessageCircle size={15} /> Agendar avaliação</WhatsAppButton><button className="mobile-menu-toggle" type="button" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-expanded={mobileMenuOpen} aria-controls="mobile-navigation" aria-label={mobileMenuOpen ? "Fechar menu" : "Abrir menu de navegação"}>{mobileMenuOpen ? <X size={21} /> : <Menu size={21} />}</button></div>
         </div>
+        <nav id="mobile-navigation" className={`mobile-nav ${mobileMenuOpen ? "is-open" : ""}`} aria-label="Navegação mobile">
+          <a href="#necessidades" onClick={closeMobileMenu}>Necessidades</a>
+          <a href="#online" onClick={closeMobileMenu}>Terapia online</a>
+          <a href="#quem-sou" onClick={closeMobileMenu}>Quem sou eu</a>
+          <a href="#avaliacoes" onClick={closeMobileMenu}>Avaliações</a>
+          <a href="#duvidas" onClick={closeMobileMenu}>Dúvidas</a>
+        </nav>
       </header>
 
       <main id="inicio">
