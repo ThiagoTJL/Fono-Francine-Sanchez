@@ -1,4 +1,8 @@
 import { useState } from "react";
+import aboutFrancineImage from "@/assets/about-francine.webp";
+import benefitsFrancineImage from "@/assets/benefits-francine.webp";
+import clinicLogo from "@/assets/clinica-la-vie-logo.png";
+import heroFrancineImage from "@/assets/hero-francine.webp";
 import {
   ArrowRight,
   Check,
@@ -141,7 +145,7 @@ export default function Home() {
       <header className="site-header">
         <div className="container header-inner">
           <a href="#inicio" className="brand-mark" aria-label="Clínica la Vie - início">
-            <img className="clinic-logo" src="/manus-storage/clinica-la-vie-logo_52749000.png" alt="Clínica la Vie — Francine Sanchez Lemes, fonoaudióloga" />
+            <img className="clinic-logo" src={clinicLogo} alt="Clínica la Vie — Francine Sanchez Lemes, fonoaudióloga" />
           </a>
           <nav className="desktop-nav" aria-label="Navegação principal">
             <a href="#necessidades">Necessidades</a>
@@ -174,7 +178,7 @@ export default function Home() {
               <div className="hero-trust"><span><Check size={15} /> 100% online</span><span><Check size={15} /> Sessões individuais</span><span><Check size={15} /> De qualquer lugar</span></div>
             </div>
             <div className="hero-visual">
-              <div className="hero-image-frame"><img src="/manus-storage/796a6962-7c4b-4851-97c5-60c04e3b49d3_db63d12a.png" alt="Dra. Francine Y. Sanchez Lemes, fonoaudióloga" /><div className="hero-image-overlay" /></div>
+              <div className="hero-image-frame"><img src={heroFrancineImage} alt="Dra. Francine Y. Sanchez Lemes, fonoaudióloga" /><div className="hero-image-overlay" /></div>
               <div className="hero-info-card"><span className="info-icon"><Video size={17} /></span><span><small>atendimento por</small><strong>videochamada</strong></span></div>
               <div className="hero-note-card"><Speech size={19} /><span>Uma voz saudável<br /><strong>para viver sua rotina.</strong></span></div>
             </div>
@@ -207,13 +211,13 @@ export default function Home() {
         </section>
 
         <section className="section section-white benefits-section">
-          <div className="container benefits-grid"><div className="benefits-visual"><img className="benefits-photo" src="/manus-storage/805f9dd8-aaa4-45be-8b0e-50cff0855e29_b6f0e8bb.png" alt="Dra. Francine Sanchez Lemes realizando exercício de voz" /><div className="benefit-quote"><Speech size={15} /><span>mais presença<br /><strong>ao se comunicar</strong></span></div></div><div className="benefits-copy"><div className="eyebrow eyebrow-green"><span /> o que você leva desse processo</div><h2>Mais conforto para <em>usar sua voz.</em></h2><p>O acompanhamento fonoaudiológico pode ajudar você a perceber melhor sua voz, organizar sua comunicação e construir estratégias para a sua rotina — sem promessas prontas e sem perder a sua autenticidade.</p><div className="check-list"><span><Check size={16} /> Entender seus padrões de voz e fala</span><span><Check size={16} /> Reduzir esforço e tensão ao se comunicar</span><span><Check size={16} /> Desenvolver clareza, presença e confiança</span><span><Check size={16} /> Ter orientação profissional durante o processo</span></div><WhatsAppButton className="button-outline-dark">Agende sua avaliação online <ArrowRight size={16} /></WhatsAppButton></div></div>
+          <div className="container benefits-grid"><div className="benefits-visual"><img className="benefits-photo" src={benefitsFrancineImage} alt="Dra. Francine Sanchez Lemes realizando exercício de voz" /><div className="benefit-quote"><Speech size={15} /><span>mais presença<br /><strong>ao se comunicar</strong></span></div></div><div className="benefits-copy"><div className="eyebrow eyebrow-green"><span /> o que você leva desse processo</div><h2>Mais conforto para <em>usar sua voz.</em></h2><p>O acompanhamento fonoaudiológico pode ajudar você a perceber melhor sua voz, organizar sua comunicação e construir estratégias para a sua rotina — sem promessas prontas e sem perder a sua autenticidade.</p><div className="check-list"><span><Check size={16} /> Entender seus padrões de voz e fala</span><span><Check size={16} /> Reduzir esforço e tensão ao se comunicar</span><span><Check size={16} /> Desenvolver clareza, presença e confiança</span><span><Check size={16} /> Ter orientação profissional durante o processo</span></div><WhatsAppButton className="button-outline-dark">Agende sua avaliação online <ArrowRight size={16} /></WhatsAppButton></div></div>
         </section>
 
         <section className="section section-soft" id="quem-sou">
           <div className="container about-grid">
             <div className="about-photo">
-              <img src="/manus-storage/747f50ef-aa35-4fff-abb4-cd6f7c9d84ef_76a7b0e0.png" alt="Dra. Francine Y. Sanchez Lemes, fonoaudióloga" />
+              <img src={aboutFrancineImage} alt="Dra. Francine Y. Sanchez Lemes, fonoaudióloga" />
             </div>
             <div className="about-copy">
               <div className="eyebrow eyebrow-coral"><span /> uma conversa de perto</div>
@@ -257,7 +261,7 @@ export default function Home() {
         <section className="final-cta"><div className="container final-cta-inner"><div><div className="eyebrow eyebrow-light"><span /> atendimento 100% online</div><h2>Sua voz pode ocupar<br /><em>mais espaço.</em></h2><p>Agende uma conversa inicial e descubra como a fonoaudiologia online pode fazer sentido para você.</p></div><WhatsAppButton className="button-primary button-large"><MessageCircle size={18} /> Agendar avaliação pelo WhatsApp <ArrowRight size={17} /></WhatsAppButton></div></section>
       </main>
 
-        <footer className="site-footer"><div className="container footer-main"><a href="#inicio" className="brand-mark"><img className="clinic-logo clinic-logo-footer" src="/manus-storage/clinica-la-vie-logo_52749000.png" alt="Clínica la Vie — Francine Sanchez Lemes, fonoaudióloga" /></a><div className="footer-nav"><a href="#necessidades">Necessidades</a><a href="#online">Terapia online</a><a href="#quem-sou">Quem sou eu</a><a href="#duvidas">Dúvidas</a></div><div className="footer-socials"><a href={INSTAGRAM_URL} target="_blank" rel="noreferrer" className="footer-instagram" aria-label="Instagram da Dra. Francine Sanchez Lemes"><Instagram size={17} /> <span>Instagram</span></a><a href={WHATSAPP_URL} target="_blank" rel="noreferrer" onClick={() => trackWhatsAppClick("footer")} className="footer-whatsapp"><MessageCircle size={16} /> WhatsApp</a></div></div><div className="container footer-bottom"><span>© 2026 Clínica la Vie. Todos os direitos reservados.</span><span>Atendimento fonoaudiológico online.</span></div></footer>
+        <footer className="site-footer"><div className="container footer-main"><a href="#inicio" className="brand-mark"><img className="clinic-logo clinic-logo-footer" src={clinicLogo} alt="Clínica la Vie — Francine Sanchez Lemes, fonoaudióloga" /></a><div className="footer-nav"><a href="#necessidades">Necessidades</a><a href="#online">Terapia online</a><a href="#quem-sou">Quem sou eu</a><a href="#duvidas">Dúvidas</a></div><div className="footer-socials"><a href={INSTAGRAM_URL} target="_blank" rel="noreferrer" className="footer-instagram" aria-label="Instagram da Dra. Francine Sanchez Lemes"><Instagram size={17} /> <span>Instagram</span></a><a href={WHATSAPP_URL} target="_blank" rel="noreferrer" onClick={() => trackWhatsAppClick("footer")} className="footer-whatsapp"><MessageCircle size={16} /> WhatsApp</a></div></div><div className="container footer-bottom"><span>© 2026 Clínica la Vie. Todos os direitos reservados.</span><span>Atendimento fonoaudiológico online.</span></div></footer>
         <a className="floating-whatsapp" href={WHATSAPP_URL} target="_blank" rel="noreferrer" onClick={() => trackWhatsAppClick("floating_button")} aria-label="Agendar consulta pelo WhatsApp" title="Agendar consulta pelo WhatsApp"><MessageCircle size={23} /><span>Agendar pelo WhatsApp</span></a>
     </div>
   );
