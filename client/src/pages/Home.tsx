@@ -10,6 +10,7 @@ import {
   ChevronLeft,
   ChevronRight,
   Clock3,
+  GraduationCap,
   Instagram,
   Laptop2,
   Menu,
@@ -31,6 +32,7 @@ import {
 // Edite somente esta constante quando quiser trocar o WhatsApp principal.
 const WHATSAPP_URL =
   "https://wa.me/5514991089006?text=Ol%C3%A1%21%20Vi%20o%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20fonoaudiologia%20online%20e%20agendar%20uma%20consulta";
+const TEACHER_WHATSAPP_URL = `https://wa.me/5514991089006?text=${encodeURIComponent("Olá, Francine! Gostaria de saber mais sobre avaliação e acompanhamento fonoaudiológico para professores convocados para perícia médica admissional.")}`;
 const INSTAGRAM_URL = "https://www.instagram.com/fonofrancinesanchez/";
 
 declare global {
@@ -70,6 +72,12 @@ const focusAreas = [
     title: "Nódulos e prega vocal",
     text: "Acompanhamento individualizado para nódulos, paralisia de prega vocal e outras necessidades clínicas.",
   },
+  {
+    icon: GraduationCap,
+    title: "Perícia para Professores",
+    text: "Vai assumir como docente na rede pública? A avaliação vocal e o acompanhamento fonoaudiológico ajudam você a cuidar da saúde vocal docente antes de iniciar sua jornada profissional, inclusive em processos de perícia médica admissional.",
+    whatsappUrl: TEACHER_WHATSAPP_URL,
+  },
 ];
 
 const faqs = [
@@ -92,6 +100,11 @@ const faqs = [
     question: "Para quem é a fonoterapia online?",
     answer:
       "A fonoterapia online é para youtubers, cantores, pastores, professores, líderes, ministros de louvor, profissionais da voz, palestrantes, idosos e para qualquer pessoa que queira cuidar da voz, da fala e da comunicação.",
+  },
+  {
+    question: "Como a fonoaudiologia pode ajudar professores antes da perícia médica admissional?",
+    answer:
+      "A avaliação fonoaudiológica para professores permite analisar as condições da voz, identificar possíveis alterações e orientar cuidados específicos para o uso vocal profissional. O acompanhamento é individualizado, conforme as necessidades de cada pessoa. A avaliação fonoaudiológica não garante aprovação na perícia médica.",
   },
   {
     question: "Preciso ter equipamentos especiais para a sessão?",
@@ -189,7 +202,7 @@ export default function Home() {
         <section className="section section-white" id="necessidades">
           <div className="container">
             <div className="section-heading two-columns"><div><div className="eyebrow eyebrow-green"><span /> cuidado para a sua necessidade</div><h2>O que você gostaria de <em>transformar?</em></h2></div><p>Você não precisa conviver com uma voz cansada, presa ou imprevisível. O acompanhamento começa entendendo o que está acontecendo e o que você deseja conquistar.</p></div>
-            <div className="areas-grid">{focusAreas.map((area, index) => { const Icon = area.icon; return <article className="area-card" key={area.title}><span className="area-number">0{index + 1}</span><span className="area-icon"><Icon size={21} /></span><h3>{area.title}</h3><p>{area.text}</p><a href={WHATSAPP_URL} target="_blank" rel="noreferrer" onClick={() => trackWhatsAppClick("necessidade_card")} className="card-link">Quero saber mais <MoveUpRight size={15} /></a></article>; })}</div>
+            <div className="areas-grid">{focusAreas.map((area, index) => { const Icon = area.icon; return <article className="area-card" key={area.title}><span className="area-number">0{index + 1}</span><span className="area-icon"><Icon size={21} /></span><h3>{area.title}</h3><p>{area.text}</p><a href={area.whatsappUrl ?? WHATSAPP_URL} target="_blank" rel="noreferrer" onClick={() => trackWhatsAppClick("necessidade_card")} className="card-link">Quero saber mais <MoveUpRight size={15} /></a></article>; })}</div>
           </div>
         </section>
 
