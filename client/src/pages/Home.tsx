@@ -165,6 +165,7 @@ export default function Home() {
             <a href="#online">Terapia online</a>
             <a href="#quem-sou">Quem sou eu</a>
             <a href="#avaliacoes">Avaliações</a>
+            <a href="#historias">Histórias</a>
             <a href="#duvidas">Dúvidas</a>
           </nav>
           <div className="header-actions"><WhatsAppButton className="button-header"><MessageCircle size={15} /> Agendar avaliação</WhatsAppButton><button className="mobile-menu-toggle" type="button" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-expanded={mobileMenuOpen} aria-controls="mobile-navigation" aria-label={mobileMenuOpen ? "Fechar menu" : "Abrir menu de navegação"}>{mobileMenuOpen ? <X size={21} /> : <Menu size={21} />}</button></div>
@@ -174,6 +175,7 @@ export default function Home() {
           <a href="#online" onClick={closeMobileMenu}>Terapia online</a>
           <a href="#quem-sou" onClick={closeMobileMenu}>Quem sou eu</a>
           <a href="#avaliacoes" onClick={closeMobileMenu}>Avaliações</a>
+          <a href="#historias" onClick={closeMobileMenu}>Histórias</a>
           <a href="#duvidas" onClick={closeMobileMenu}>Dúvidas</a>
         </nav>
       </header>
@@ -237,6 +239,7 @@ export default function Home() {
               <h2>Quem sou <em>eu</em></h2>
               <p className="editable-note">Dra. Francine Y. Sanchez Lemes</p>
               <p className="about-role">CRFa 2-22090</p>
+              <div className="about-credentials" aria-label="Formação e registro profissional"><span><GraduationCap size={17} /><strong>Formação pela USP</strong></span><span><ShieldCheck size={17} /><strong>CRFa 2-22090</strong></span></div>
               <p>Sou fonoaudióloga formada pela USP, com especialização em voz profissional, comunicação e canto.</p>
               <p>Atuo com uma abordagem personalizada, acolhedora e baseada em evidências, atendendo adultos, profissionais da voz e crianças de forma online para todo o Brasil e exterior.</p>
               <p>Meu propósito é ajudar cada pessoa a se comunicar melhor, com mais confiança e qualidade de vida, respeitando suas necessidades e sua individualidade.</p>
@@ -256,7 +259,7 @@ export default function Home() {
               <div className="eyebrow eyebrow-coral"><span /> experiência de quem já passou por aqui</div>
               <h2>A voz de quem <em>confia.</em></h2>
               <p>Confira avaliações publicadas no Google por pessoas que conheceram o trabalho da Dra. Francine.</p>
-              <div className="google-label"><span className="google-g">G</span><span><strong>Avaliações do Google</strong><small>Publicadas no perfil do Google</small></span></div>
+              <div className="google-label"><span className="google-g">G</span><span><strong>Avaliações do Google</strong><small>Textos reproduzidos conforme publicados na plataforma</small></span></div>
             </div>
             <div className="reviews-carousel" aria-label="Carrossel estático de avaliações do Google">
               <div className="review-card">
@@ -266,6 +269,18 @@ export default function Home() {
               </div>
               <div className="reviews-controls"><button type="button" onClick={() => setReviewIndex((reviewIndex - 1 + googleReviews.length) % googleReviews.length)} aria-label="Avaliação anterior"><ChevronLeft size={18} /></button><div className="review-dots">{googleReviews.map((review, index) => <button type="button" key={review.name} className={index === reviewIndex ? "is-active" : ""} onClick={() => setReviewIndex(index)} aria-label={`Ver avaliação de ${review.name}`} />)}</div><button type="button" onClick={() => setReviewIndex((reviewIndex + 1) % googleReviews.length)} aria-label="Próxima avaliação"><ChevronRight size={18} /></button></div>
             </div>
+          </div>
+        </section>
+
+        <section className="section stories-section" id="historias">
+          <div className="container">
+            <div className="section-heading centered"><div className="eyebrow eyebrow-coral"><span /> relatos em vídeo</div><h2>Histórias reais, <em>experiências reais.</em></h2><p>Conheça relatos de pessoas que compartilharam suas experiências com o acompanhamento fonoaudiológico.</p></div>
+            {/* Estrutura preparada para receber links reais do YouTube/Vimeo após autorização expressa de uso de imagem, voz e depoimento. */}
+            <div className="video-slots">
+              <article className="video-card video-card-placeholder"><div className="video-card-icon"><Video size={23} /></div><div><span className="video-card-status">Espaço reservado</span><h3>Relato em vídeo autorizado</h3><p>Este espaço será preenchido somente com um relato real, autorizado e identificado.</p></div></article>
+              <article className="video-card video-card-placeholder"><div className="video-card-icon"><Video size={23} /></div><div><span className="video-card-status">Espaço reservado</span><h3>Experiência de acompanhamento</h3><p>Adicione aqui um link do YouTube ou Vimeo após confirmar as autorizações necessárias.</p></div></article>
+            </div>
+            <div className="stories-note"><ShieldCheck size={17} /><span>Para proteger a privacidade, nenhum depoimento em vídeo é exibido antes da autorização documentada da pessoa.</span></div>
           </div>
         </section>
 
