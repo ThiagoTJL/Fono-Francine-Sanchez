@@ -34,6 +34,12 @@ const WHATSAPP_URL =
   "https://wa.me/5514991089006?text=Ol%C3%A1%21%20Vi%20o%20site%20e%20gostaria%20de%20saber%20mais%20sobre%20a%20fonoaudiologia%20online%20e%20agendar%20uma%20consulta";
 const TEACHER_WHATSAPP_URL = `https://wa.me/5514991089006?text=${encodeURIComponent("Olá, Francine! Gostaria de saber mais sobre avaliação e acompanhamento fonoaudiológico para professores convocados para perícia médica admissional.")}`;
 const INSTAGRAM_URL = "https://www.instagram.com/fonofrancinesanchez/";
+const GOOGLE_PROFILE_URL = "https://share.google/frFFOVDbajZaupSGW";
+
+const videoStories = [
+  { id: "02zXz0f5RdE", title: "Relato em vídeo", description: "Experiência compartilhada sobre o acompanhamento fonoaudiológico." },
+  { id: "0CL_t2MnkF8", title: "Experiência de acompanhamento", description: "Relato em vídeo publicado no canal da profissional." },
+];
 
 declare global {
   interface Window {
@@ -260,6 +266,7 @@ export default function Home() {
               <h2>A voz de quem <em>confia.</em></h2>
               <p>Confira avaliações publicadas no Google por pessoas que conheceram o trabalho da Dra. Francine.</p>
               <div className="google-label"><span className="google-g">G</span><span><strong>Avaliações do Google</strong><small>Textos reproduzidos conforme publicados na plataforma</small></span></div>
+              <div className="google-rating" aria-label="Avaliação de 5 estrelas no Google"><span className="review-stars">{Array.from({ length: 5 }).map((_, index) => <Star key={index} size={15} fill="currentColor" />)}</span><strong>5 estrelas</strong><a href={GOOGLE_PROFILE_URL} target="_blank" rel="noreferrer">Ver perfil no Google <MoveUpRight size={13} /></a></div>
             </div>
             <div className="reviews-carousel" aria-label="Carrossel estático de avaliações do Google">
               <div className="review-card">
@@ -275,10 +282,8 @@ export default function Home() {
         <section className="section stories-section" id="historias">
           <div className="container">
             <div className="section-heading centered"><div className="eyebrow eyebrow-coral"><span /> relatos em vídeo</div><h2>Histórias reais, <em>experiências reais.</em></h2><p>Conheça relatos de pessoas que compartilharam suas experiências com o acompanhamento fonoaudiológico.</p></div>
-            {/* Estrutura preparada para receber links reais do YouTube/Vimeo após autorização expressa de uso de imagem, voz e depoimento. */}
             <div className="video-slots">
-              <article className="video-card video-card-placeholder"><div className="video-card-icon"><Video size={23} /></div><div><span className="video-card-status">Espaço reservado</span><h3>Relato em vídeo autorizado</h3><p>Este espaço será preenchido somente com um relato real, autorizado e identificado.</p></div></article>
-              <article className="video-card video-card-placeholder"><div className="video-card-icon"><Video size={23} /></div><div><span className="video-card-status">Espaço reservado</span><h3>Experiência de acompanhamento</h3><p>Adicione aqui um link do YouTube ou Vimeo após confirmar as autorizações necessárias.</p></div></article>
+              {videoStories.map((video) => <article className="video-card" key={video.id}><div className="video-frame"><iframe src={`https://www.youtube-nocookie.com/embed/${video.id}`} title={video.title} loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen /></div><div className="video-card-copy"><span className="video-card-status">Relato em vídeo</span><h3>{video.title}</h3><p>{video.description}</p></div></article>)}
             </div>
             <div className="stories-note"><ShieldCheck size={17} /><span>Para proteger a privacidade, nenhum depoimento em vídeo é exibido antes da autorização documentada da pessoa.</span></div>
           </div>
